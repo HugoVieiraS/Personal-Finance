@@ -1,0 +1,30 @@
+C:\Hugo Vieira\Projetos\API\PersonalFinance.WebAPI\PersonalFinance.WebApi.DAL\bin\Debug\netcoreapp3.1\PersonalFinance.WebApi.DAL.deps.json
+C:\Hugo Vieira\Projetos\API\PersonalFinance.WebAPI\PersonalFinance.WebApi.DAL\bin\Debug\netcoreapp3.1\PersonalFinance.WebApi.DAL.dll
+C:\Hugo Vieira\Projetos\API\PersonalFinance.WebAPI\PersonalFinance.WebApi.DAL\bin\Debug\netcoreapp3.1\PersonalFinance.WebApi.DAL.pdb
+C:\Hugo Vieira\Projetos\API\PersonalFinance.WebAPI\PersonalFinance.WebApi.DAL\bin\Debug\netcoreapp3.1\PersonalFinance.WebApi.Model.dll
+C:\Hugo Vieira\Projetos\API\PersonalFinance.WebAPI\PersonalFinance.WebApi.DAL\bin\Debug\netcoreapp3.1\PersonalFinance.WebApi.Model.pdb
+C:\Hugo Vieira\Projetos\API\PersonalFinance.WebAPI\PersonalFinance.WebApi.DAL\obj\Debug\netcoreapp3.1\PersonalFinance.WebApi.DAL.csprojAssemblyReference.cache
+C:\Hugo Vieira\Projetos\API\PersonalFinance.WebAPI\PersonalFinance.WebApi.DAL\obj\Debug\netcoreapp3.1\PersonalFinance.WebApi.DAL.AssemblyInfoInputs.cache
+C:\Hugo Vieira\Projetos\API\PersonalFinance.WebAPI\PersonalFinance.WebApi.DAL\obj\Debug\netcoreapp3.1\PersonalFinance.WebApi.DAL.AssemblyInfo.cs
+C:\Hugo Vieira\Projetos\API\PersonalFinance.WebAPI\PersonalFinance.WebApi.DAL\obj\Debug\netcoreapp3.1\PersonalFinance.WebApi.DAL.csproj.CopyComplete
+C:\Hugo Vieira\Projetos\API\PersonalFinance.WebAPI\PersonalFinance.WebApi.DAL\obj\Debug\netcoreapp3.1\PersonalFinance.WebApi.DAL.dll
+C:\Hugo Vieira\Projetos\API\PersonalFinance.WebAPI\PersonalFinance.WebApi.DAL\obj\Debug\netcoreapp3.1\PersonalFinance.WebApi.DAL.pdb
+C:\Hugo Vieira\Projetos\API\PersonalFinance.WebAPI\PersonalFinance.WebApi.DAL\bin\Debug\netcoreapp3.1\PersonalFinance.WebApi.DAL.runtimeconfig.json
+C:\Hugo Vieira\Projetos\API\PersonalFinance.WebAPI\PersonalFinance.WebApi.DAL\bin\Debug\netcoreapp3.1\PersonalFinance.WebApi.DAL.runtimeconfig.dev.json
+C:\Hugo Vieira\Projetos\API\PersonalFinance.WebAPI\PersonalFinance.WebApi.DAL\obj\Debug\netcoreapp3.1\PersonalFinance.WebApi.DAL.csproj.CoreCompileInputs.cache
+C:\Hugo Vieira\Projetos\API\PersonalFinance.WebAPI\PersonalFinance.WebApi.DAL\obj\Debug\netcoreapp3.1\PersonalFinance.WebApi.DAL.genruntimeconfig.cache
+C:\Hugo Vieira\Projetos\Personal Finance\API\PersonalFinance.WebAPI\PersonalFinance.WebApi.DAL\obj\Debug\netcoreapp3.1\PersonalFinance.WebApi.DAL.csprojAssemblyReference.cache
+C:\Hugo Vieira\Projetos\Personal Finance\API\PersonalFinance.WebAPI\PersonalFinance.WebApi.DAL\obj\Debug\netcoreapp3.1\PersonalFinance.WebApi.DAL.AssemblyInfoInputs.cache
+C:\Hugo Vieira\Projetos\Personal Finance\API\PersonalFinance.WebAPI\PersonalFinance.WebApi.DAL\obj\Debug\netcoreapp3.1\PersonalFinance.WebApi.DAL.AssemblyInfo.cs
+C:\Hugo Vieira\Projetos\Personal Finance\API\PersonalFinance.WebAPI\PersonalFinance.WebApi.DAL\obj\Debug\netcoreapp3.1\PersonalFinance.WebApi.DAL.csproj.CoreCompileInputs.cache
+C:\Hugo Vieira\Projetos\Personal Finance\API\PersonalFinance.WebAPI\PersonalFinance.WebApi.DAL\obj\Debug\netcoreapp3.1\PersonalFinance.WebApi.DAL.dll
+C:\Hugo Vieira\Projetos\Personal Finance\API\PersonalFinance.WebAPI\PersonalFinance.WebApi.DAL\obj\Debug\netcoreapp3.1\PersonalFinance.WebApi.DAL.pdb
+C:\Hugo Vieira\Projetos\Personal Finance\API\PersonalFinance.WebAPI\PersonalFinance.WebApi.DAL\bin\Debug\netcoreapp3.1\PersonalFinance.WebApi.DAL.deps.json
+C:\Hugo Vieira\Projetos\Personal Finance\API\PersonalFinance.WebAPI\PersonalFinance.WebApi.DAL\bin\Debug\netcoreapp3.1\PersonalFinance.WebApi.DAL.runtimeconfig.json
+C:\Hugo Vieira\Projetos\Personal Finance\API\PersonalFinance.WebAPI\PersonalFinance.WebApi.DAL\bin\Debug\netcoreapp3.1\PersonalFinance.WebApi.DAL.runtimeconfig.dev.json
+C:\Hugo Vieira\Projetos\Personal Finance\API\PersonalFinance.WebAPI\PersonalFinance.WebApi.DAL\bin\Debug\netcoreapp3.1\PersonalFinance.WebApi.DAL.dll
+C:\Hugo Vieira\Projetos\Personal Finance\API\PersonalFinance.WebAPI\PersonalFinance.WebApi.DAL\bin\Debug\netcoreapp3.1\PersonalFinance.WebApi.DAL.pdb
+C:\Hugo Vieira\Projetos\Personal Finance\API\PersonalFinance.WebAPI\PersonalFinance.WebApi.DAL\bin\Debug\netcoreapp3.1\PersonalFinance.WebApi.Model.dll
+C:\Hugo Vieira\Projetos\Personal Finance\API\PersonalFinance.WebAPI\PersonalFinance.WebApi.DAL\bin\Debug\netcoreapp3.1\PersonalFinance.WebApi.Model.pdb
+C:\Hugo Vieira\Projetos\Personal Finance\API\PersonalFinance.WebAPI\PersonalFinance.WebApi.DAL\obj\Debug\netcoreapp3.1\PersonalFinance.WebApi.DAL.csproj.CopyComplete
+C:\Hugo Vieira\Projetos\Personal Finance\API\PersonalFinance.WebAPI\PersonalFinance.WebApi.DAL\obj\Debug\netcoreapp3.1\PersonalFinance.WebApi.DAL.genruntimeconfig.cache
