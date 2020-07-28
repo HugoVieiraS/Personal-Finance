@@ -6,6 +6,7 @@ namespace PersonalFinance.WebApi.Model
 {
     public class Patrimonio : EntityBase
     {
+        #region Properties
         public double ValorPatrimonio { get; set; }
         public IList<Competencia> Competencia { get; set; }
         public virtual ContaBancaria ContaBancaria { get; set; }
@@ -14,6 +15,6 @@ namespace PersonalFinance.WebApi.Model
         public int InvestimentosId { get; set; }
         public virtual Usuarios Usuarios { get; set; }
         public int UsuariosId { get; set; }
-
+        #endregion
     }
 }

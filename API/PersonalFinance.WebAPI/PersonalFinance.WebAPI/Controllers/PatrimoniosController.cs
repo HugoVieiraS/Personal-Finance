@@ -25,6 +25,7 @@ namespace PersonalFinance.WebAPI.Controllers
         }
         #endregion
 
+        #region Methods
         // GET: api/Patrimonios
         [HttpGet]
         public ActionResult<IEnumerable<Patrimonio>> GetPatrimonio()
@@ -66,7 +67,7 @@ namespace PersonalFinance.WebAPI.Controllers
 
         // POST: api/Patrimonios
         [HttpPost]
-        public async Task<ActionResult<Patrimonio>> PostPatrimonio(Patrimonio model)
+        public ActionResult<Patrimonio> PostPatrimonio(Patrimonio model)
         {
             if (ModelState.IsValid)
             {
@@ -88,5 +89,6 @@ namespace PersonalFinance.WebAPI.Controllers
             }
             return NotFound();
         }
+        #endregion
     }
 }

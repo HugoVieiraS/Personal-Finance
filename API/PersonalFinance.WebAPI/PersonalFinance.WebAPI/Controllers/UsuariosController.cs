@@ -69,7 +69,7 @@ namespace PersonalFinance.WebAPI.Controllers
         [HttpPost]
         public ActionResult<Usuarios> PostUsuarios(Usuarios usuarios)
         {
-            if (usuarios != null)
+            if (ModelState.IsValid)
             {
                 _context.Insert(usuarios);
                 return Ok();

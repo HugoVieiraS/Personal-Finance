@@ -13,6 +13,7 @@ namespace PersonalFinance.WebApi.Model
         public string Senha { get; set; }
         #endregion
 
+        #region Private Methods
         private string GerarHash(string senha)
         {
             var md5 = MD5.Create();
@@ -20,5 +21,6 @@ namespace PersonalFinance.WebApi.Model
             var hash = md5.ComputeHash(inputBytes);
             return BitConverter.ToString(hash).Replace("-", "");
         }
+        #endregion
     }
 }

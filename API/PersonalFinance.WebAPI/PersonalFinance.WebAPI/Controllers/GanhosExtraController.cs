@@ -18,11 +18,14 @@ namespace PersonalFinance.WebAPI.Controllers
         private readonly IRepository<GanhoExtra> _context;
         #endregion
 
+        #region Constructors
         public GanhosExtraController(IRepository<GanhoExtra> context)
         {
             _context = context;
         }
+        #endregion
 
+        #region Methods
         // GET: api/GanhosExtra
         [HttpGet]
         public ActionResult<IEnumerable<GanhoExtra>> GetGanhoExtra()
@@ -85,5 +88,6 @@ namespace PersonalFinance.WebAPI.Controllers
             }
             return NotFound();
         }
+        #endregion
     }
 }

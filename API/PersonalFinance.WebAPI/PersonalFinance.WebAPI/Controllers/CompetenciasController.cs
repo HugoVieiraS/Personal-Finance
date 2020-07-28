@@ -18,11 +18,14 @@ namespace PersonalFinance.WebAPI.Controllers
         private readonly IRepository<Competencia> _context;
         #endregion
 
+        #region Constructors
         public CompetenciasController(IRepository<Competencia> context)
         {
             _context = context;
         }
+        #endregion
 
+        #region Methods
         // GET: api/Competencias
         [HttpGet]
         public ActionResult<IEnumerable<Competencia>> GetCompetencia()
@@ -44,7 +47,7 @@ namespace PersonalFinance.WebAPI.Controllers
             return competencia;
         }
 
-        // PUT: api/Competencias/5
+        // PUT: api/Competencias
         [HttpPut]
         public IActionResult PutCompetencia(Competencia model)
         {
@@ -76,7 +79,7 @@ namespace PersonalFinance.WebAPI.Controllers
 
         // DELETE: api/Competencias/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Competencia>> DeleteCompetencia(int id)
+        public ActionResult<Competencia> DeleteCompetencia(int id)
         {
             var competencia = _context.Find(id);
             if (competencia != null)
@@ -86,5 +89,6 @@ namespace PersonalFinance.WebAPI.Controllers
             }
             return NotFound();
         }
+        #endregion
     }
 }

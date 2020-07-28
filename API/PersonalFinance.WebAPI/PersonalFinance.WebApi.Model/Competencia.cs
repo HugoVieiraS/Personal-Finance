@@ -6,6 +6,7 @@ namespace PersonalFinance.WebApi.Model
 {
     public class Competencia : EntityBase
     {
+        #region Properties
         public DateTime Inicial { get; set; }
         public DateTime Final { get; set; }
         public double ValorGasto { get; set; }
@@ -20,5 +21,6 @@ namespace PersonalFinance.WebApi.Model
         public int GanhoExtraId { get; set; }
         public virtual Patrimonio Patrimonio { get; set; }
         public int PatrimonioId { get; set; }
+#endregion
     }
 }

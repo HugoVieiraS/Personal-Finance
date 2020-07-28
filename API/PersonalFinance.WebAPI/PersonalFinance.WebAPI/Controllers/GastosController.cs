@@ -26,6 +26,7 @@ namespace PersonalFinance.WebAPI.Controllers
         }
         #endregion
 
+        #region Methods
         // GET: api/Gastos
         [HttpGet]
         public ActionResult<IEnumerable<Gastos>> GetGastos()
@@ -90,5 +91,6 @@ namespace PersonalFinance.WebAPI.Controllers
             }
             return NotFound();
         }
+        #endregion
     }
 }

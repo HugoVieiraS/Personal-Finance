@@ -10,10 +10,6 @@ namespace PersonalFinance.WebApi.DAL
         private readonly ApplicationContext _context;
         #endregion
 
-        #region Properties
-        public IQueryable<TEntity> List => _context.Set<TEntity>().AsQueryable();
-        #endregion
-
         #region Constructors
         public RepositorioBase(ApplicationContext context)
         {
@@ -22,6 +18,8 @@ namespace PersonalFinance.WebApi.DAL
         #endregion
 
         #region Methods
+        public IQueryable<TEntity> List => _context.Set<TEntity>().AsQueryable();
+
         public void Update(params TEntity[] obj)
         {
             _context.Set<TEntity>().UpdateRange(obj);
