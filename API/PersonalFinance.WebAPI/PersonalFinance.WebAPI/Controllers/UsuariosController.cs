@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PersonalFinance.WebApi.DAL;
+using PersonalFinance.WebApi.Extensions;
 using PersonalFinance.WebApi.Model;
 
 namespace PersonalFinance.WebAPI.Controllers
@@ -41,37 +42,34 @@ namespace PersonalFinance.WebAPI.Controllers
             var usuarios = _context.Find(id);
             if (usuarios != null)
             {
-                return Ok(usuarios);
+                return Ok(usuarios.ToApi());
             }
 
-            return BadRequest();
+            return NotFound();
         }
 
         // PUT: api/Usuarios
         [HttpPut]
-        public IActionResult PutUsuarios(Usuarios model)
+        public ActionResult<Usuarios> PutUsuarios(Usuarios model)
         {
+            var usuario = model.ToModel();
+
             if (ModelState.IsValid)
             {
-                var usuario = _context.Find(model.Id);
-                if (usuario != null)
-                {
-                    usuario = model;
-                    _context.Update(usuario);
-
-                    return Ok();
-                }
+                _context.Update(usuario);
+                return Ok();
             }
+
             return BadRequest();
         }
 
         // POST: api/Usuarios
         [HttpPost]
-        public ActionResult<Usuarios> PostUsuarios(Usuarios usuarios)
+        public ActionResult<Usuarios> PostUsuarios(Usuarios model)
         {
             if (ModelState.IsValid)
             {
-                _context.Insert(usuarios);
+                _context.Insert(model);
                 return Ok();
             }
 
@@ -83,13 +81,13 @@ namespace PersonalFinance.WebAPI.Controllers
         public ActionResult<Usuarios> DeleteUsuarios(int id)
         {
             var usuarios = _context.Find(id);
-            if (usuarios == null)
+            if (usuarios != null)
             {
-                return NotFound();
+                _context.Delete(usuarios);
+                return Ok();
             }
-            _context.Delete(usuarios);
 
-            return Ok();
+            return BadRequest();
         }
         #endregion
     }

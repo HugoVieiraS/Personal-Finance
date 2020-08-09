@@ -18,12 +18,15 @@ namespace PersonalFinance.WebAPI
 {
     public class Startup
     {
+        #region Properties
         public IConfiguration Configuration { get; }
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
+        #endregion
 
+        #region Methods
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -31,14 +34,17 @@ namespace PersonalFinance.WebAPI
             {
                 options.UseSqlServer(Configuration.GetConnectionString("Default"));
             });
-
             services.AddTransient<IDataService, DataService>();
 
-            //Adicionar classes para injeção de dependencia
+            #region Adicionar classes para injeção de dependencia
             services.AddTransient<IRepository<Usuarios>, RepositorioBase<Usuarios>>();
             services.AddTransient<IRepository<Salario>, RepositorioBase<Salario>>();
             services.AddTransient<IRepository<Investimentos>, RepositorioBase<Investimentos>>();
             services.AddTransient<IRepository<Gastos>, RepositorioBase<Gastos>>();
+            services.AddTransient<IRepository<GanhoExtra>, RepositorioBase<GanhoExtra>>();
+            services.AddTransient<IRepository<ContaBancaria>, RepositorioBase<ContaBancaria>>();
+            services.AddTransient<IRepository<Competencia>, RepositorioBase<Competencia>>();
+            #endregion
 
             services.AddControllers();
         }
@@ -66,5 +72,6 @@ namespace PersonalFinance.WebAPI
             //Garantir que o banco está criado
             serviceProvider.GetService<IDataService>().InicializaBD();
         }
+        #endregion
     }
 }

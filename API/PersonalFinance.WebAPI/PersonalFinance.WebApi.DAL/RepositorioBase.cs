@@ -1,4 +1,5 @@
-﻿using PersonalFinance.WebApi.Model;
+﻿using Microsoft.EntityFrameworkCore;
+using PersonalFinance.WebApi.Model;
 using System;
 using System.Linq;
 

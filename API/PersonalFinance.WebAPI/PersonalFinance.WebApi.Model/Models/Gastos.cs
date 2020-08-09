@@ -10,7 +10,9 @@ namespace PersonalFinance.WebApi.Model
         public double Valor { get; set; }
         public DateTime DataPagamento { get; set; }
         public DateTime DataGasto { get; set; }
-        public IList<Competencia> Competencia { get; set; }
+
+        public virtual Competencia Competencia { get; set; }
+        public int CompetenciaId { get; set; }
         #endregion
     }
 }

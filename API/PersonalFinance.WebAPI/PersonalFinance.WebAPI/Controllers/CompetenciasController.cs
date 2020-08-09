@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PersonalFinance.WebApi.DAL;
 using PersonalFinance.WebApi.Model;
+using PersonalFinance.WebApi.Extensions;
 
 namespace PersonalFinance.WebAPI.Controllers
 {
@@ -40,11 +41,11 @@ namespace PersonalFinance.WebAPI.Controllers
         {
             var competencia = _context.Find(id);
 
-            if (competencia == null)
+            if (competencia != null)
             {
-                return NotFound();
+                return Ok(competencia.ToModel());
             }
-            return competencia;
+            return NotFound();
         }
 
         // PUT: api/Competencias

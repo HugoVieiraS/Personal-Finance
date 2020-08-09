@@ -11,45 +11,48 @@ namespace PersonalFinance.WebApi.DAL
 {
     public class ApplicationContext : DbContext
     {
+        #region Properties
+        public DbSet<Usuarios> Usuarios { get; set; }
         public DbSet<Investimentos> Investimentos { get; set; }
         public DbSet<Gastos> Gastos { get; set; }
         public DbSet<GanhoExtra> GanhoExtra { get; set; }
         public DbSet<ContaBancaria> ContaBancaria { get; set; }
         public DbSet<Competencia> Competencia { get; set; }
-        public DbSet<Patrimonio> Patrimonio { get; set; }
+        #endregion
 
-
+        #region Constructor
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)
         {
             //Database.EnsureCreated();
-        }
 
+        }
+        #endregion
+
+        #region Methods
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            //Para fazer o mapeamento da classe para o banco, é necessário adicionar logo a baixo
+
+            #region Para fazer o mapeamento da classe para o banco, é necessário adicionar logo a baixo
             modelBuilder.Entity<Competencia>().HasKey(t => t.Id);
             modelBuilder.Entity<GanhoExtra>().HasKey(t => t.Id);
             modelBuilder.Entity<Gastos>().HasKey(t => t.Id);
             modelBuilder.Entity<Investimentos>().HasKey(t => t.Id);
-            modelBuilder.Entity<Patrimonio>().HasKey(t => t.Id);
             modelBuilder.Entity<Salario>().HasKey(t => t.Id);
             modelBuilder.Entity<Usuarios>().HasKey(t => t.Id);
             modelBuilder.Entity<ContaBancaria>().HasKey(t => t.Id);
+            #endregion
 
-            //Relacionamento entre as tabelas
-            modelBuilder.Entity<Patrimonio>().HasOne(t => t.Usuarios);
-            modelBuilder.Entity<Patrimonio>().HasOne(t => t.ContaBancaria);
-            modelBuilder.Entity<Patrimonio>().HasOne(t => t.Investimentos);
-
-            modelBuilder.Entity<Competencia>().HasOne(t => t.Gastos);
-            modelBuilder.Entity<Competencia>().HasOne(t => t.Salario);
-            modelBuilder.Entity<Competencia>().HasOne(t => t.GanhoExtra);
-            modelBuilder.Entity<Competencia>().HasOne(t => t.Patrimonio);
-
-
+            #region Relacionamento entre as tabelas;
+            modelBuilder.Entity<Salario>().HasOne(t => t.Competencia);
+            modelBuilder.Entity<Investimentos>().HasOne(t => t.Competencia);
+            modelBuilder.Entity<Gastos>().HasOne(t => t.Competencia);
+            modelBuilder.Entity<GanhoExtra>().HasOne(t => t.Competencia);
+            modelBuilder.Entity<ContaBancaria>().HasOne(t => t.Competencia);
+            #endregion
         }
+        #endregion
     }
 }

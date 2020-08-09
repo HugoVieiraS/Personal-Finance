@@ -10,7 +10,7 @@ using PersonalFinance.WebApi.DAL;
 namespace PersonalFinance.WebApi.DAL.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20200725193938_Inicial")]
+    [Migration("20200809164020_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,20 +31,8 @@ namespace PersonalFinance.WebApi.DAL.Migrations
                     b.Property<DateTime>("Final")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("GanhoExtraId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("GastosId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("Inicial")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("PatrimonioId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SalarioId")
-                        .HasColumnType("int");
 
                     b.Property<double>("ValorGanho")
                         .HasColumnType("float");
@@ -57,14 +45,6 @@ namespace PersonalFinance.WebApi.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("GanhoExtraId");
-
-                    b.HasIndex("GastosId");
-
-                    b.HasIndex("PatrimonioId");
-
-                    b.HasIndex("SalarioId");
-
                     b.ToTable("Competencia");
                 });
 
@@ -74,6 +54,9 @@ namespace PersonalFinance.WebApi.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CompetenciaId")
+                        .HasColumnType("int");
 
                     b.Property<string>("NomeBanco")
                         .HasColumnType("nvarchar(max)");
@@ -86,6 +69,8 @@ namespace PersonalFinance.WebApi.DAL.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CompetenciaId");
+
                     b.ToTable("ContaBancaria");
                 });
 
@@ -95,6 +80,9 @@ namespace PersonalFinance.WebApi.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CompetenciaId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("DataGanho")
                         .HasColumnType("datetime2");
@@ -107,6 +95,8 @@ namespace PersonalFinance.WebApi.DAL.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CompetenciaId");
+
                     b.ToTable("GanhoExtra");
                 });
 
@@ -116,6 +106,9 @@ namespace PersonalFinance.WebApi.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CompetenciaId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("DataGasto")
                         .HasColumnType("datetime2");
@@ -131,6 +124,8 @@ namespace PersonalFinance.WebApi.DAL.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CompetenciaId");
+
                     b.ToTable("Gastos");
                 });
 
@@ -140,6 +135,9 @@ namespace PersonalFinance.WebApi.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CompetenciaId")
+                        .HasColumnType("int");
 
                     b.Property<string>("NomeInvestimento")
                         .HasColumnType("nvarchar(max)");
@@ -152,38 +150,9 @@ namespace PersonalFinance.WebApi.DAL.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CompetenciaId");
+
                     b.ToTable("Investimentos");
-                });
-
-            modelBuilder.Entity("PersonalFinance.WebApi.Model.Patrimonio", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("ContaBancariaId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("InvestimentosId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UsuariosId")
-                        .HasColumnType("int");
-
-                    b.Property<double>("ValorPatrimonio")
-                        .HasColumnType("float");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ContaBancariaId");
-
-                    b.HasIndex("InvestimentosId");
-
-                    b.HasIndex("UsuariosId")
-                        .IsUnique();
-
-                    b.ToTable("Patrimonio");
                 });
 
             modelBuilder.Entity("PersonalFinance.WebApi.Model.Salario", b =>
@@ -192,6 +161,9 @@ namespace PersonalFinance.WebApi.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CompetenciaId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("DataRecebimento")
                         .HasColumnType("datetime2");
@@ -218,6 +190,8 @@ namespace PersonalFinance.WebApi.DAL.Migrations
                         .HasColumnType("float");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CompetenciaId");
 
                     b.ToTable("Salario");
                 });
@@ -246,50 +220,47 @@ namespace PersonalFinance.WebApi.DAL.Migrations
                     b.ToTable("Usuarios");
                 });
 
-            modelBuilder.Entity("PersonalFinance.WebApi.Model.Competencia", b =>
+            modelBuilder.Entity("PersonalFinance.WebApi.Model.ContaBancaria", b =>
                 {
-                    b.HasOne("PersonalFinance.WebApi.Model.GanhoExtra", "GanhoExtra")
-                        .WithMany("Competencia")
-                        .HasForeignKey("GanhoExtraId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("PersonalFinance.WebApi.Model.Gastos", "Gastos")
-                        .WithMany("Competencia")
-                        .HasForeignKey("GastosId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("PersonalFinance.WebApi.Model.Patrimonio", "Patrimonio")
-                        .WithMany("Competencia")
-                        .HasForeignKey("PatrimonioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("PersonalFinance.WebApi.Model.Salario", "Salario")
-                        .WithMany("Competencia")
-                        .HasForeignKey("SalarioId")
+                    b.HasOne("PersonalFinance.WebApi.Model.Competencia", "Competencia")
+                        .WithMany("ContaBancaria")
+                        .HasForeignKey("CompetenciaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("PersonalFinance.WebApi.Model.Patrimonio", b =>
+            modelBuilder.Entity("PersonalFinance.WebApi.Model.GanhoExtra", b =>
                 {
-                    b.HasOne("PersonalFinance.WebApi.Model.ContaBancaria", "ContaBancaria")
-                        .WithMany()
-                        .HasForeignKey("ContaBancariaId")
+                    b.HasOne("PersonalFinance.WebApi.Model.Competencia", "Competencia")
+                        .WithMany("GanhoExtra")
+                        .HasForeignKey("CompetenciaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
 
-                    b.HasOne("PersonalFinance.WebApi.Model.Investimentos", "Investimentos")
-                        .WithMany()
-                        .HasForeignKey("InvestimentosId")
+            modelBuilder.Entity("PersonalFinance.WebApi.Model.Gastos", b =>
+                {
+                    b.HasOne("PersonalFinance.WebApi.Model.Competencia", "Competencia")
+                        .WithMany("Gastos")
+                        .HasForeignKey("CompetenciaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
 
-                    b.HasOne("PersonalFinance.WebApi.Model.Usuarios", "Usuarios")
-                        .WithOne("Patrimonio")
-                        .HasForeignKey("PersonalFinance.WebApi.Model.Patrimonio", "UsuariosId")
+            modelBuilder.Entity("PersonalFinance.WebApi.Model.Investimentos", b =>
+                {
+                    b.HasOne("PersonalFinance.WebApi.Model.Competencia", "Competencia")
+                        .WithMany("Investimentos")
+                        .HasForeignKey("CompetenciaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("PersonalFinance.WebApi.Model.Salario", b =>
+                {
+                    b.HasOne("PersonalFinance.WebApi.Model.Competencia", "Competencia")
+                        .WithMany("Salario")
+                        .HasForeignKey("CompetenciaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

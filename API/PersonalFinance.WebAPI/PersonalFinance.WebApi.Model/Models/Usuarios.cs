@@ -23,4 +23,14 @@ namespace PersonalFinance.WebApi.Model
         }
         #endregion
     }
+
+    public class UsuariosApi
+    {
+        #region Properties
+        public int Id { get; set; }
+        public string Nome { get; set; }
+        public string Login { get; set; }
+        public string Email { get; set; }
+        #endregion
+    }
 }
