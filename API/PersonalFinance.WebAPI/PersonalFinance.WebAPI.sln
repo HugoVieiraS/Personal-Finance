@@ -9,9 +9,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Common", "0 - Common", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonalFinance.WebApi.Model", "PersonalFinance.WebApi.Model\PersonalFinance.WebApi.Model.csproj", "{DA6D9D0F-2B8B-4F56-B258-9FB095D63F79}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalFinance.WebApi.DAL", "PersonalFinance.WebApi.DAL\PersonalFinance.WebApi.DAL.csproj", "{3E7A021D-28E7-4E5F-B32B-503EF77DB22D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonalFinance.WebApi.DAL", "PersonalFinance.WebApi.DAL\PersonalFinance.WebApi.DAL.csproj", "{3E7A021D-28E7-4E5F-B32B-503EF77DB22D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Service", "1 - Service", "{8A0EEBBC-DEF6-45A4-A9B9-B6017F00A4BA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Testes", "2 - Testes", "{24B63292-0C93-4423-83E9-F12673D94BDF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

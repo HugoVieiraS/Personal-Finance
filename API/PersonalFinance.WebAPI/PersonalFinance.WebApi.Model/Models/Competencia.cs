@@ -25,8 +25,8 @@ namespace PersonalFinance.WebApi.Model
     {
         #region Properties
         public int Id { get; set; }
-        public DateTime DataInicial { get; set; }
-        public DateTime DataFinal { get; set; }
+        public String DataInicial { get; set; }
+        public String DataFinal { get; set; }
         public double ValorGasto { get; set; }
         public double ValorGanho { get; set; }
         public double ValorSobra { get; set; }

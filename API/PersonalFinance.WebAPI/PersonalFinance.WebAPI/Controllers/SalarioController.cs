@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PersonalFinance.WebApi.DAL;
 using PersonalFinance.WebApi.Model;
+using PersonalFinance.WebApi.Model.Extensions;
 
 namespace PersonalFinance.WebAPI.Controllers
 {
@@ -36,20 +37,19 @@ namespace PersonalFinance.WebAPI.Controllers
 
         // GET: api/Salario/5
         [HttpGet("{id}")]
-        public ActionResult<Salario> GetSalario(int id)
+        public ActionResult<SalarioApi> GetSalario(int id)
         {
-            var ganhoFixo = _context.Find(id);
-            if (ganhoFixo == null)
+            var salario = _context.Find(id);
+            if (salario != null)
             {
-                return NotFound();
+                return Ok(salario.ToApi());
             }
-
-            return ganhoFixo;
+            return NotFound();
         }
 
         // PUT: api/Salario
         [HttpPut]
-        public IActionResult PutSalario(int id, Salario ganhoFixo)
+        public ActionResult<Salario> PutSalario(int id, Salario ganhoFixo)
         {
             if (id != ganhoFixo.Id)
             {
@@ -62,11 +62,11 @@ namespace PersonalFinance.WebAPI.Controllers
 
         // POST: api/Salario
         [HttpPost("{id}")]
-        public  ActionResult<Salario> PostSalario(Salario salario)
+        public ActionResult<Salario> PostSalario(SalarioApi model)
         {
-            if (salario != null)
+            if (ModelState.IsValid)
             {
-                _context.Insert(salario);
+                _context.Insert(model.ToModel());
                 return Ok();
             }
 

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Dj3fwGwrjclhwoZoI1YoAuaEU7YHja3/+PvGXC+8RpEcRLUpso9AZ44bKOIUhPmzd8KfZfojQYLemIAcpZPHxA==",
+  "success": true,
+  "projectFilePath": "C:\\Hugo Vieira\\Projetos\\Personal Finance\\WEB APP\\PersonalFinance.WebApp.APP\\Common\\Common.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hugov\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

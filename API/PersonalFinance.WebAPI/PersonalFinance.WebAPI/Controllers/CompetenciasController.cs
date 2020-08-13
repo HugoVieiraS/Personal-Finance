@@ -37,42 +37,37 @@ namespace PersonalFinance.WebAPI.Controllers
 
         // GET: api/Competencias/5
         [HttpGet("{id}")]
-        public ActionResult<Competencia> GetCompetencia(int id)
+        public ActionResult<CompetenciaApi> GetCompetencia(int id)
         {
             var competencia = _context.Find(id);
 
             if (competencia != null)
             {
-                return Ok(competencia.ToModel());
+                return Ok(competencia.ToApi());
             }
             return NotFound();
         }
 
         // PUT: api/Competencias
         [HttpPut]
-        public IActionResult PutCompetencia(Competencia model)
+        public ActionResult<Competencia> PutCompetencia(CompetenciaApi model)
         {
             if (ModelState.IsValid)
             {
-                var competencia = _context.Find(model.Id);
-                if (competencia != null)
-                {
-                    competencia = model;
-                    _context.Update(competencia);
-
-                    return Ok();
-                }
+                _context.Update(model.ToModel());
+                return Ok();
             }
+
             return BadRequest();
         }
 
         // POST: api/Competencias
         [HttpPost]
-        public ActionResult<Competencia> PostCompetencia(Competencia model)
+        public ActionResult<Competencia> PostCompetencia(CompetenciaApi model)
         {
             if (ModelState.IsValid)
             {
-                _context.Insert(model);
+                _context.Insert(model.ToModel());
                 return Ok();
             }
             return BadRequest();

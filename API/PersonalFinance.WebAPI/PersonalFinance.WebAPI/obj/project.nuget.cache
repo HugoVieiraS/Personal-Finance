@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "SDlpLowR1ayTe8uCP0oFpR3cwvjYlFLBej6HpFDTgQRd1t4i84gDwnawdkfC4mFsqSq/r60HuhUTS0IjOeM4dg==",
+  "dgSpecHash": "pbVcCEN77A/ggHfDMqeDfMCI1kaZUvGZeuNc5UrjDr3Vnnem6V9erK2KnSudfk1BoCstXVgUkEDvkVP6cTBOpA==",
   "success": true,
   "projectFilePath": "C:\\Hugo Vieira\\Projetos\\Personal Finance\\API\\PersonalFinance.WebAPI\\PersonalFinance.WebAPI\\PersonalFinance.WebAPI.csproj",
   "expectedPackageFiles": [
@@ -57,7 +57,7 @@
     "C:\\Users\\hugov\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
     "C:\\Users\\hugov\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\hugov\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
-    "C:\\Users\\hugov\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
+    "C:\\Users\\hugov\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\hugov\\.nuget\\packages\\nuget.frameworks\\4.7.0\\nuget.frameworks.4.7.0.nupkg.sha512",
     "C:\\Users\\hugov\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\hugov\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",

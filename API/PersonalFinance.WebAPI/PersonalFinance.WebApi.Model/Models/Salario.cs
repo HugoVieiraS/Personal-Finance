@@ -19,4 +19,20 @@ namespace PersonalFinance.WebApi.Model
         public int CompetenciaId { get; set; }
         #endregion  
     }
+
+    public class SalarioApi
+    {
+        #region Properties
+        public int Id { get; set; }
+        public string NomeEmpresa { get; set; }
+        public String DataRecebimento { get; set; }
+        public double ValorBruto { get; set; }
+        public double Desconto1 { get; set; }
+        public double Desconto2 { get; set; }
+        public double Imposto { get; set; }
+        public double ValorLiquido { get; set; }
+        public double ValorAdicional { get; set; }
+        public int CompetenciaId { get; set; }
+        #endregion
+    }
 }

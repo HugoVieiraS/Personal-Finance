@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "iTJyWWIW3UprieaXF76feA5pR8toHO/U2jlINGxuUUFNn7qlc169INSWO+MTe9rDylB0oCPknXNUYyCh1nKo+Q==",
+  "dgSpecHash": "ac3biB/g4nFyvcmllREBenU1J3hDqS949K+U/T/Kiai+c98WKGnijBe4I4GF1T6KNV7VEFA20f1iiV6m66oKGw==",
   "success": true,
   "projectFilePath": "C:\\Hugo Vieira\\Projetos\\Personal Finance\\API\\PersonalFinance.WebAPI\\PersonalFinance.WebApi.Model\\PersonalFinance.WebApi.Model.csproj",
   "expectedPackageFiles": [
@@ -32,6 +32,7 @@
     "C:\\Users\\hugov\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\hugov\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
     "C:\\Users\\hugov\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\hugov\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\hugov\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\hugov\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\hugov\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
