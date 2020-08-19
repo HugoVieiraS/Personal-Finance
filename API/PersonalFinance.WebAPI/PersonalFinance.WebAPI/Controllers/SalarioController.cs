@@ -49,19 +49,18 @@ namespace PersonalFinance.WebAPI.Controllers
 
         // PUT: api/Salario
         [HttpPut]
-        public ActionResult<Salario> PutSalario(int id, Salario ganhoFixo)
+        public ActionResult<Salario> PutSalario(SalarioApi ganhoFixo)
         {
-            if (id != ganhoFixo.Id)
+            if (ModelState.IsValid)
             {
-                return NotFound();
+                _context.Update(ganhoFixo.ToModel());
+                return Ok();
             }
-            _context.Update(ganhoFixo);
-
-            return Ok();
+            return NotFound();
         }
 
         // POST: api/Salario
-        [HttpPost("{id}")]
+        [HttpPost]
         public ActionResult<Salario> PostSalario(SalarioApi model)
         {
             if (ModelState.IsValid)
@@ -78,13 +77,13 @@ namespace PersonalFinance.WebAPI.Controllers
         public ActionResult<Salario> DeleteSalario(int id)
         {
             var salario = _context.Find(id);
-            if (salario == null)
+            if (salario != null)
             {
-                return NotFound();
+                _context.Delete(salario);
+                return Ok();
             }
-            _context.Delete(salario);
 
-            return Ok();
+            return NotFound();
         }
         #endregion
     }

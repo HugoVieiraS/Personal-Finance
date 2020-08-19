@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PersonalFinance.WebApi.Model;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace PersonalFinance.WebApi.DAL
 {
@@ -42,6 +44,30 @@ namespace PersonalFinance.WebApi.DAL
         {
             _context.Set<TEntity>().AddRange(obj);
             _context.SaveChanges();
+        }
+        #endregion
+
+        #region Methods Assync
+        public async Task<IList<TEntity>> FindAllAsync()
+        {
+            return await _context.Set<TEntity>().ToListAsync();
+        }
+
+        public async Task<TEntity> FindAsync(int key)
+        {
+            return await _context.FindAsync<TEntity>(key);
+        }
+
+        public async Task SaveChangesAsync(params TEntity[] obj)
+        {
+            _context.Entry(obj).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task RemoveAsync(params TEntity[] obj)
+        {
+            _context.Set<TEntity>().RemoveRange(obj);
+            await _context.SaveChangesAsync();
         }
         #endregion
     }

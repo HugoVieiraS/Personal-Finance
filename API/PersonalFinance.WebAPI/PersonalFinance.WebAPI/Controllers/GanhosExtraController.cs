@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PersonalFinance.WebApi.DAL;
 using PersonalFinance.WebApi.Model;
+using PersonalFinance.WebApi.Model.Extensions;
 
 namespace PersonalFinance.WebAPI.Controllers
 {
@@ -41,36 +42,30 @@ namespace PersonalFinance.WebAPI.Controllers
             var ganhoExtra = _context.Find(id);
             if (ganhoExtra != null)
             {
-                return ganhoExtra;
+                return Ok(ganhoExtra.ToApi());
             }
             return NotFound();
         }
 
         // PUT: api/GanhosExtra
         [HttpPut]
-        public IActionResult PutGanhoExtra(GanhoExtra model)
+        public ActionResult<GanhoExtra> PutGanhoExtra(GanhoExtraApi model)
         {
             if (ModelState.IsValid)
             {
-                var ganhoExtra = _context.Find(model.Id);
-                if (ganhoExtra != null)
-                {
-                    ganhoExtra = model;
-                    _context.Update(ganhoExtra);
-
-                    return Ok();
-                }
+                _context.Update(model.ToModel());
+                return Ok();
             }
             return BadRequest();
         }
 
         // POST: api/GanhosExtra
         [HttpPost]
-        public ActionResult<GanhoExtra> PostGanhoExtra(GanhoExtra model)
+        public ActionResult<GanhoExtra> PostGanhoExtra(GanhoExtraApi model)
         {
             if (ModelState.IsValid)
             {
-                _context.Insert(model);
+                _context.Insert(model.ToModel());
                 return Ok();
             }
             return BadRequest();

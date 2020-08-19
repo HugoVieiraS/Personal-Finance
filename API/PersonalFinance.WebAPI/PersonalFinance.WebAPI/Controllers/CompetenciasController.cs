@@ -86,5 +86,20 @@ namespace PersonalFinance.WebAPI.Controllers
             return NotFound();
         }
         #endregion
+
+        #region Private Method
+        private void AbrirCompetencia(CompetenciaApi model)
+        {
+           _context.Insert(model.ToModel());
+        }
+
+        private void FecharCompetencia(CompetenciaApi model)
+        {
+            var competencia = _context.Find(model.Id);
+            competencia.DataFinal = Convert.ToDateTime(model.DataFinal);
+            
+            _context.Update(competencia);
+        }
+        #endregion
     }
 }

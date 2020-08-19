@@ -15,4 +15,14 @@ namespace PersonalFinance.WebApi.Model
         public int CompetenciaId { get; set; }
         #endregion
     }
+    public class ContaBancariaApi
+    {
+        #region Properties
+        public int Id { get; set; }
+        public string NomeBanco { get; set; }
+        public double ValorConta { get; set; }
+        public double Rendimento { get; set; }
+        public int CompetenciaId { get; set; }
+        #endregion
+    }
 }

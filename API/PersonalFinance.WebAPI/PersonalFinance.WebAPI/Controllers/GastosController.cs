@@ -7,7 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using PersonalFinance.WebApi.DAL;
+using PersonalFinance.WebApi.Extensions;
 using PersonalFinance.WebApi.Model;
+using PersonalFinance.WebApi.Model.Extensions;
 
 namespace PersonalFinance.WebAPI.Controllers
 {
@@ -40,40 +42,33 @@ namespace PersonalFinance.WebAPI.Controllers
         public ActionResult<Gastos> GetGastos(int id)
         {
             var gastos = _context.Find(id);
-
-            if (gastos == null)
+            if (gastos != null)
             {
-                return NotFound();
+                return Ok(gastos.ToApi());
             }
 
-            return gastos;
+            return NotFound();
         }
 
         // PUT: api/Gastos
         [HttpPut]
-        public IActionResult PutGastos(Gastos model)
+        public ActionResult<Gastos> PutGastos(GastosApi model)
         {
             if (ModelState.IsValid)
             {
-                var gastos = _context.Find(model.Id);
-                if (gastos != null)
-                {
-                    gastos = model;
-                    _context.Update(gastos);
-
-                    return Ok();
-                }
+                _context.Update(model.ToModel());
+                return Ok();
             }
             return BadRequest();
         }
 
         // POST: api/Gastos
         [HttpPost]
-        public ActionResult<Gastos> PostGastos(Gastos gastos)
+        public ActionResult<Gastos> PostGastos(GastosApi model)
         {
             if (ModelState.IsValid)
             {
-                _context.Insert(gastos);
+                _context.Insert(model.ToModel());
                 return Ok();
             }
             return BadRequest();

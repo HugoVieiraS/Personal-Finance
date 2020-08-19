@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PersonalFinance.WebApi.DAL;
 using PersonalFinance.WebApi.Model;
+using PersonalFinance.WebApi.Model.Extensions;
 
 namespace PersonalFinance.WebAPI.Controllers
 {
@@ -41,36 +42,30 @@ namespace PersonalFinance.WebAPI.Controllers
             var investimentos = _context.Find(id);
             if (investimentos != null)
             {
-                return investimentos;
+                return Ok(investimentos.ToApi());
             }
             return NotFound();
         }
 
         //PUT: api/Investimentos
         [HttpPut]
-        public IActionResult PutInvestimentos(Investimentos model)
+        public ActionResult<Investimentos> PutInvestimentos(InvestimentosApi model)
         {
             if (ModelState.IsValid)
             {
-                var investimentos = _context.Find(model.Id);
-                if (investimentos != null)
-                {
-                    investimentos = model;
-                    _context.Update(investimentos);
-
-                    return Ok();
-                }
+                _context.Update(model.ToModel());
+                return Ok();
             }
             return BadRequest();
         }
 
         // POST: api/Investimentos
         [HttpPost]
-        public ActionResult<Investimentos> PostInvestimentos(Investimentos investimentos)
+        public ActionResult<Investimentos> PostInvestimentos(InvestimentosApi model)
         {
             if (ModelState.IsValid)
             {
-                _context.Insert(investimentos);
+                _context.Insert(model.ToModel());
                 return Ok();
             }
             return BadRequest();
