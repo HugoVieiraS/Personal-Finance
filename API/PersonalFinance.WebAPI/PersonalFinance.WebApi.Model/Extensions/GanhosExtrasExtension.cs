@@ -12,7 +12,7 @@ namespace PersonalFinance.WebApi.Model.Extensions
             return new GanhoExtra
             {
                 Id = model.Id,
-                DataGanho = Convert.ToDateTime(model.DataGanho),
+                DataRecebimento = Convert.ToDateTime(model.DataRecebimento),
                 Valor = model.Valor,
                 CompetenciaId = model.CompetenciaId,
             };
@@ -23,7 +23,7 @@ namespace PersonalFinance.WebApi.Model.Extensions
             return new GanhoExtraApi
             {
                 Id = model.Id,
-                DataGanho = Convert.ToString(model.DataGanho),
+                DataRecebimento = Convert.ToString(model.DataRecebimento),
                 Valor = model.Valor,
                 CompetenciaId = model.CompetenciaId,
             };

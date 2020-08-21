@@ -29,9 +29,9 @@ namespace PersonalFinance.WebAPI.Controllers
         #region Methods
         //GET: api/Usuarios
         [HttpGet]
-        public ActionResult<IQueryable<Usuarios>> GetContext()
+        public async Task<ActionResult<IList<Usuarios>>> GetContext()
         {
-            var list = _context.List.ToList();
+            var list = await _context.FindAllAsync();
             return Ok(list);
         }
 
@@ -50,13 +50,11 @@ namespace PersonalFinance.WebAPI.Controllers
 
         // PUT: api/Usuarios
         [HttpPut]
-        public ActionResult<Usuarios> PutUsuarios(Usuarios model)
+        public async Task<IActionResult> PutUsuarios(Usuarios model)
         {
-            var usuario = model.ToModel();
-
             if (ModelState.IsValid)
             {
-                _context.Update(usuario);
+                await _context.UpdateChangesAsync(model);
                 return Ok();
             }
 
@@ -65,11 +63,11 @@ namespace PersonalFinance.WebAPI.Controllers
 
         // POST: api/Usuarios
         [HttpPost]
-        public ActionResult<Usuarios> PostUsuarios(Usuarios model)
+        public async Task<ActionResult<Usuarios>> PostUsuarios(Usuarios model)
         {
             if (ModelState.IsValid)
             {
-                _context.Insert(model);
+                await _context.InsertAsync(model);
                 return Ok();
             }
 
@@ -78,12 +76,12 @@ namespace PersonalFinance.WebAPI.Controllers
 
         // DELETE: api/Usuarios/5
         [HttpDelete("{id}")]
-        public ActionResult<Usuarios> DeleteUsuarios(int id)
+        public async Task<ActionResult<Usuarios>> DeleteUsuarios(int id)
         {
-            var usuarios = _context.Find(id);
+            var usuarios = await _context.FindAsync(id);
             if (usuarios != null)
             {
-                _context.Delete(usuarios);
+                await _context.RemoveAsync(usuarios);
                 return Ok();
             }
 

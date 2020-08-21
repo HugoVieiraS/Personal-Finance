@@ -29,43 +29,45 @@ namespace PersonalFinance.WebAPI.Controllers
         #region Methods
         // GET: api/GanhoFixo
         [HttpGet]
-        public ActionResult<IEnumerable<Salario>> GetList()
+        public async Task<ActionResult<IList<Salario>>> GetList()
         {
-            var list = _context.List;
+            var list = await _context.FindAllAsync();
             return Ok(list);
         }
 
         // GET: api/Salario/5
         [HttpGet("{id}")]
-        public ActionResult<SalarioApi> GetSalario(int id)
+        public async Task<ActionResult<SalarioApi>> GetSalario(int id)
         {
-            var salario = _context.Find(id);
+            var salario = await _context.FindAsync(id);
             if (salario != null)
             {
                 return Ok(salario.ToApi());
             }
+
             return NotFound();
         }
 
         // PUT: api/Salario
         [HttpPut]
-        public ActionResult<Salario> PutSalario(SalarioApi ganhoFixo)
+        public async Task<IActionResult> PutSalario(SalarioApi ganhoFixo)
         {
             if (ModelState.IsValid)
             {
-                _context.Update(ganhoFixo.ToModel());
+                await _context.UpdateChangesAsync(ganhoFixo.ToModel());
                 return Ok();
             }
+
             return NotFound();
         }
 
         // POST: api/Salario
         [HttpPost]
-        public ActionResult<Salario> PostSalario(SalarioApi model)
+        public async Task<ActionResult<Salario>> PostSalario(SalarioApi model)
         {
             if (ModelState.IsValid)
             {
-                _context.Insert(model.ToModel());
+                await _context.InsertAsync(model.ToModel());
                 return Ok();
             }
 
@@ -74,9 +76,9 @@ namespace PersonalFinance.WebAPI.Controllers
 
         // DELETE: api/Salario/5
         [HttpDelete("{id}")]
-        public ActionResult<Salario> DeleteSalario(int id)
+        public async Task<ActionResult<Salario>> DeleteSalario(int id)
         {
-            var salario = _context.Find(id);
+            var salario = await _context.FindAsync(id);
             if (salario != null)
             {
                 _context.Delete(salario);

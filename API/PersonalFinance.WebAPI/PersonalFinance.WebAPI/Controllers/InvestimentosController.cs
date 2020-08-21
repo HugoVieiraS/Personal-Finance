@@ -29,17 +29,17 @@ namespace PersonalFinance.WebAPI.Controllers
         #region Methods
         // GET: api/Investimentos
         [HttpGet]
-        public ActionResult<IEnumerable<Investimentos>> GetInvestimentos()
+        public async Task<ActionResult<Investimentos>> GetInvestimentos()
         {
-            var list = _context.List;
+            var list = await _context.FindAllAsync();
             return Ok(list);
         }
 
         // GET: api/Investimentos/5
         [HttpGet("{id}")]
-        public ActionResult<Investimentos> GetInvestimentos(int id)
+        public async Task<ActionResult<Investimentos>> GetInvestimentos(int id)
         {
-            var investimentos = _context.Find(id);
+            var investimentos = await _context.FindAsync(id);
             if (investimentos != null)
             {
                 return Ok(investimentos.ToApi());
@@ -49,38 +49,41 @@ namespace PersonalFinance.WebAPI.Controllers
 
         //PUT: api/Investimentos
         [HttpPut]
-        public ActionResult<Investimentos> PutInvestimentos(InvestimentosApi model)
+        public async Task<IActionResult> PutInvestimentos(InvestimentosApi model)
         {
             if (ModelState.IsValid)
             {
-                _context.Update(model.ToModel());
+                await _context.UpdateChangesAsync(model.ToModel());
                 return Ok();
             }
+
             return BadRequest();
         }
 
         // POST: api/Investimentos
         [HttpPost]
-        public ActionResult<Investimentos> PostInvestimentos(InvestimentosApi model)
+        public async Task<ActionResult<Investimentos>> PostInvestimentos(InvestimentosApi model)
         {
             if (ModelState.IsValid)
             {
-                _context.Insert(model.ToModel());
+                await _context.InsertAsync(model.ToModel());
                 return Ok();
             }
+
             return BadRequest();
         }
 
         // DELETE: api/Investimentos/5
         [HttpDelete("{id}")]
-        public ActionResult<Investimentos> DeleteInvestimentos(int id)
+        public async Task<ActionResult<Investimentos>> DeleteInvestimentos(int id)
         {
             var investimentos = _context.Find(id);
             if (investimentos != null)
             {
-                _context.Delete(investimentos);
+                await _context.RemoveAsync(investimentos);
                 return Ok();
             }
+
             return NotFound();
         }
         #endregion

@@ -6,7 +6,7 @@ namespace PersonalFinance.WebApi.Model
     public class Salario : EntityBase
     {
         #region Properties
-        public string NomeEmpresa { get; set; } //alterar OrigemGanho
+        public string OrigemGanho { get; set; } 
         public DateTime DataRecebimento { get; set; }
         public double ValorBruto { get; set; }
         public double Desconto1 { get; set; }
@@ -24,8 +24,8 @@ namespace PersonalFinance.WebApi.Model
     {
         #region Properties
         public int Id { get; set; }
-        public string NomeEmpresa { get; set; }
-        public String DataRecebimento { get; set; }
+        public string OrigemGanho { get; set; }
+        public string DataRecebimento { get; set; }
         public double ValorBruto { get; set; }
         public double Desconto1 { get; set; }
         public double Desconto2 { get; set; }

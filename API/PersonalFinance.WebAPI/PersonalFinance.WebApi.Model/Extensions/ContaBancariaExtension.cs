@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace PersonalFinance.WebApi.Model.Extensions
 {
@@ -29,7 +30,7 @@ namespace PersonalFinance.WebApi.Model.Extensions
                 Rendimento = model.Rendimento,
                 CompetenciaId = model.CompetenciaId,
             };
-        }
+        }     
         #endregion
     }
 }

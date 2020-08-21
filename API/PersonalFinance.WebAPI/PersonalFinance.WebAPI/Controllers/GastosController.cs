@@ -31,17 +31,17 @@ namespace PersonalFinance.WebAPI.Controllers
         #region Methods
         // GET: api/Gastos
         [HttpGet]
-        public ActionResult<IEnumerable<Gastos>> GetGastos()
+        public async Task<ActionResult<IList<Gastos>>> GetGastos()
         {
-            var list = _context.List;
+            var list = await _context.FindAllAsync();
             return Ok(list);
         }
 
         // GET: api/Gastos/5
         [HttpGet("{id}")]
-        public ActionResult<Gastos> GetGastos(int id)
+        public async Task<ActionResult<Gastos>> GetGastos(int id)
         {
-            var gastos = _context.Find(id);
+            var gastos = await _context.FindAsync(id);
             if (gastos != null)
             {
                 return Ok(gastos.ToApi());
@@ -52,11 +52,11 @@ namespace PersonalFinance.WebAPI.Controllers
 
         // PUT: api/Gastos
         [HttpPut]
-        public ActionResult<Gastos> PutGastos(GastosApi model)
+        public async Task<IActionResult> PutGastos(GastosApi model)
         {
             if (ModelState.IsValid)
             {
-                _context.Update(model.ToModel());
+                await _context.UpdateChangesAsync(model.ToModel());
                 return Ok();
             }
             return BadRequest();
@@ -64,11 +64,11 @@ namespace PersonalFinance.WebAPI.Controllers
 
         // POST: api/Gastos
         [HttpPost]
-        public ActionResult<Gastos> PostGastos(GastosApi model)
+        public async Task<ActionResult<Gastos>> PostGastos(GastosApi model)
         {
             if (ModelState.IsValid)
             {
-                _context.Insert(model.ToModel());
+                await _context.InsertAsync(model.ToModel());
                 return Ok();
             }
             return BadRequest();
@@ -76,9 +76,9 @@ namespace PersonalFinance.WebAPI.Controllers
 
         // DELETE: api/Gastos/5
         [HttpDelete("{id}")]
-        public ActionResult<Gastos> DeleteGastos(int id)
+        public async Task<ActionResult<Gastos>> DeleteGastos(int id)
         {
-            var gastos = _context.Find(id);
+            var gastos = await _context.FindAsync(id);
             if (gastos != null)
             {
                 _context.Delete(gastos);

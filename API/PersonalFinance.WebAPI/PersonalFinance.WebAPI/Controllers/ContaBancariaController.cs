@@ -50,13 +50,14 @@ namespace PersonalFinance.WebAPI.Controllers
 
         // PUT: api/ContaBancaria
         [HttpPut]
-        public async Task<IActionResult> PutContaBancaria(ContaBancaria model)
+        public async Task<IActionResult> PutContaBancaria(ContaBancariaApi model)
         {
             if (ModelState.IsValid)
             {
-                await _context.SaveChangesAsync(model);
+                await _context.UpdateChangesAsync(model.ToModel());
                 return Ok();
             }
+
             return BadRequest();
         }
 
@@ -66,7 +67,7 @@ namespace PersonalFinance.WebAPI.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _context.SaveChangesAsync(model.ToModel());
+                await _context.InsertAsync(model.ToModel());
                 return Ok();
             }
 

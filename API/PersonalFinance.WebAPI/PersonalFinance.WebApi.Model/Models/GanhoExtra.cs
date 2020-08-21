@@ -9,7 +9,7 @@ namespace PersonalFinance.WebApi.Model
         #region Properties
         public string Origem { get; set; }
         public double Valor { get; set; }
-        public DateTime DataGanho { get; set; } //DataRecebimento
+        public DateTime DataRecebimento { get; set; } 
 
         public virtual Competencia Competencia { get; set; }
         public int CompetenciaId { get; set; }
@@ -22,7 +22,7 @@ namespace PersonalFinance.WebApi.Model
         public int Id { get; set; }
         public string Origem { get; set; }
         public double Valor { get; set; }
-        public string DataGanho { get; set; }
+        public string DataRecebimento { get; set; }
         public int CompetenciaId { get; set; }
         #endregion
     }

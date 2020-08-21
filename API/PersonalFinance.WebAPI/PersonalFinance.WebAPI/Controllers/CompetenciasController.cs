@@ -29,32 +29,32 @@ namespace PersonalFinance.WebAPI.Controllers
         #region Methods
         // GET: api/Competencias
         [HttpGet]
-        public ActionResult<IEnumerable<Competencia>> GetCompetencia()
+        public async Task<ActionResult<IEnumerable<Competencia>>> GetCompetencia()
         {
-            var list = _context.List;
+            IList<Competencia> list = await _context.FindAllAsync();
             return Ok(list);
         }
 
         // GET: api/Competencias/5
         [HttpGet("{id}")]
-        public ActionResult<CompetenciaApi> GetCompetencia(int id)
+        public async Task<ActionResult<CompetenciaApi>> GetCompetencia(int id)
         {
-            var competencia = _context.Find(id);
-
+            var competencia = await _context.FindAsync(id);
             if (competencia != null)
             {
                 return Ok(competencia.ToApi());
             }
+
             return NotFound();
         }
 
         // PUT: api/Competencias
         [HttpPut]
-        public ActionResult<Competencia> PutCompetencia(CompetenciaApi model)
+        public async Task<IActionResult> PutCompetencia(CompetenciaApi model)
         {
             if (ModelState.IsValid)
             {
-                _context.Update(model.ToModel());
+                await _context.UpdateChangesAsync(model.ToModel());
                 return Ok();
             }
 
@@ -63,11 +63,11 @@ namespace PersonalFinance.WebAPI.Controllers
 
         // POST: api/Competencias
         [HttpPost]
-        public ActionResult<Competencia> PostCompetencia(CompetenciaApi model)
+        public async Task<ActionResult<Competencia>> PostCompetencia(CompetenciaApi model)
         {
             if (ModelState.IsValid)
             {
-                _context.Insert(model.ToModel());
+                await _context.InsertAsync(model.ToModel());
                 return Ok();
             }
             return BadRequest();
@@ -75,14 +75,15 @@ namespace PersonalFinance.WebAPI.Controllers
 
         // DELETE: api/Competencias/5
         [HttpDelete("{id}")]
-        public ActionResult<Competencia> DeleteCompetencia(int id)
+        public async Task<ActionResult<Competencia>> DeleteCompetencia(int id)
         {
             var competencia = _context.Find(id);
             if (competencia != null)
             {
-                _context.Delete(competencia);
+                await _context.RemoveAsync(competencia);
                 return Ok();
             }
+
             return NotFound();
         }
         #endregion

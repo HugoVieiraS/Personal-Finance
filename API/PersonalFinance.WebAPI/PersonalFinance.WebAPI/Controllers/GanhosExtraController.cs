@@ -29,31 +29,32 @@ namespace PersonalFinance.WebAPI.Controllers
         #region Methods
         // GET: api/GanhosExtra
         [HttpGet]
-        public ActionResult<IEnumerable<GanhoExtra>> GetGanhoExtra()
+        public async Task<ActionResult<IList<GanhoExtra>>> GetGanhoExtra()
         {
-            var list = _context.List;
+            var list = await _context.FindAllAsync();
             return Ok(list);
         }
 
         // GET: api/GanhosExtra/5
         [HttpGet("{id}")]
-        public ActionResult<GanhoExtra> GetGanhoExtra(int id)
+        public async Task<ActionResult<GanhoExtra>> GetGanhoExtra(int id)
         {
-            var ganhoExtra = _context.Find(id);
+            var ganhoExtra = await _context.FindAsync(id);
             if (ganhoExtra != null)
             {
                 return Ok(ganhoExtra.ToApi());
             }
+
             return NotFound();
         }
 
         // PUT: api/GanhosExtra
         [HttpPut]
-        public ActionResult<GanhoExtra> PutGanhoExtra(GanhoExtraApi model)
+        public async Task<IActionResult> PutGanhoExtra(GanhoExtraApi model)
         {
             if (ModelState.IsValid)
             {
-                _context.Update(model.ToModel());
+                await _context.UpdateChangesAsync(model.ToModel());
                 return Ok();
             }
             return BadRequest();
@@ -61,26 +62,28 @@ namespace PersonalFinance.WebAPI.Controllers
 
         // POST: api/GanhosExtra
         [HttpPost]
-        public ActionResult<GanhoExtra> PostGanhoExtra(GanhoExtraApi model)
+        public async Task<ActionResult<GanhoExtra>> PostGanhoExtra(GanhoExtraApi model)
         {
             if (ModelState.IsValid)
             {
-                _context.Insert(model.ToModel());
+                await _context.InsertAsync(model.ToModel());
                 return Ok();
             }
+
             return BadRequest();
         }
 
         // DELETE: api/GanhosExtra/5
         [HttpDelete("{id}")]
-        public ActionResult<GanhoExtra> DeleteGanhoExtra(int id)
+        public async Task<ActionResult<GanhoExtra>> DeleteGanhoExtra(int id)
         {
             var ganhoExtra = _context.Find(id);
             if (ganhoExtra != null)
             {
-                _context.Delete(ganhoExtra);
+                await _context.RemoveAsync(ganhoExtra);
                 return Ok();
             }
+
             return NotFound();
         }
         #endregion

@@ -12,7 +12,7 @@ namespace PersonalFinance.WebApi.Model.Extensions
             return new Salario
             {
                 Id = model.Id,
-                NomeEmpresa = model.NomeEmpresa,
+                OrigemGanho = model.OrigemGanho,
                 DataRecebimento = Convert.ToDateTime(model.DataRecebimento),
                 ValorBruto = model.ValorBruto,
                 Desconto1 = model.Desconto1,
@@ -29,7 +29,7 @@ namespace PersonalFinance.WebApi.Model.Extensions
             return new SalarioApi
             {
                 Id = model.Id,
-                NomeEmpresa = model.NomeEmpresa,
+                OrigemGanho = model.OrigemGanho,
                 DataRecebimento = Convert.ToString(model.DataRecebimento),
                 ValorBruto = model.ValorBruto,
                 Desconto1 = model.Desconto1,
