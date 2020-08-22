@@ -48,19 +48,6 @@ namespace PersonalFinance.WebAPI.Controllers
             return NotFound();
         }
 
-        // PUT: api/ContaBancaria
-        [HttpPut]
-        public async Task<IActionResult> PutContaBancaria(ContaBancariaApi model)
-        {
-            if (ModelState.IsValid)
-            {
-                await _context.UpdateChangesAsync(model.ToModel());
-                return Ok();
-            }
-
-            return BadRequest();
-        }
-
         // POST: api/ContaBancaria
         [HttpPost]
         public async Task<ActionResult<ContaBancaria>> PostContaBancaria(ContaBancariaApi model)
@@ -68,6 +55,20 @@ namespace PersonalFinance.WebAPI.Controllers
             if (ModelState.IsValid)
             {
                 await _context.InsertAsync(model.ToModel());
+                return Ok();
+            }
+
+            return BadRequest();
+        }
+
+        // PUT: api/ContaBancaria
+        [HttpPut]
+        public async Task<IActionResult> PutContaBancaria(ContaBancariaApi model)
+        {
+            if (ModelState.IsValid)
+            {
+                var conta = model.ToModel();
+                await _context.UpdateChangesAsync(conta);
                 return Ok();
             }
 

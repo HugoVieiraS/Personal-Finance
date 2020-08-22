@@ -17,21 +17,28 @@ namespace PersonalFinance.WebAPI.Controllers
     {
         #region Fields
         private readonly IRepository<Competencia> _context;
+        private readonly IRepository<GanhoExtra> _ganhoExtra;
+        private readonly IRepository<Gastos> _gastos;
+        private readonly IRepository<Salario> _salario;
         #endregion
 
         #region Constructors
-        public CompetenciasController(IRepository<Competencia> context)
+        public CompetenciasController(IRepository<Competencia> context, IRepository<GanhoExtra> ganhoExtra,
+                                      IRepository<Salario> salario, IRepository<Gastos> gastos)
         {
             _context = context;
+            _ganhoExtra = ganhoExtra;
+            _salario = salario;
+            _gastos = gastos;
         }
         #endregion
 
         #region Methods
-        // GET: api/Competencias
+        //GET: api/Competencias
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Competencia>>> GetCompetencia()
+        public async Task<ActionResult<IEnumerable<CompetenciaApi>>> GetCompetencia()
         {
-            IList<Competencia> list = await _context.FindAllAsync();
+            var list = await _context.FindAllAsync();
             return Ok(list);
         }
 
@@ -48,22 +55,9 @@ namespace PersonalFinance.WebAPI.Controllers
             return NotFound();
         }
 
-        // PUT: api/Competencias
-        [HttpPut]
-        public async Task<IActionResult> PutCompetencia(CompetenciaApi model)
-        {
-            if (ModelState.IsValid)
-            {
-                await _context.UpdateChangesAsync(model.ToModel());
-                return Ok();
-            }
-
-            return BadRequest();
-        }
-
         // POST: api/Competencias
         [HttpPost]
-        public async Task<ActionResult<Competencia>> PostCompetencia(CompetenciaApi model)
+        public async Task<ActionResult<Competencia>> AbrirCompetencia(CompetenciaApi model)
         {
             if (ModelState.IsValid)
             {
@@ -72,7 +66,21 @@ namespace PersonalFinance.WebAPI.Controllers
             }
             return BadRequest();
         }
+        
+        // PUT: api/Competencias
+        [HttpPut]
+        public async Task<ActionResult<Competencia>> FecharCompetencia(CompetenciaApi model)
+        {
+            if (ModelState.IsValid)
+            {
+                await FechamentoOrcamento(model);
+                await _context.UpdateChangesAsync(model.ToModel());
+                return Ok();
+            }
 
+            return BadRequest();
+        }
+      
         // DELETE: api/Competencias/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Competencia>> DeleteCompetencia(int id)
@@ -88,19 +96,21 @@ namespace PersonalFinance.WebAPI.Controllers
         }
         #endregion
 
-        #region Private Method
-        private void AbrirCompetencia(CompetenciaApi model)
+        #region Private Methods
+        private async Task FechamentoOrcamento(CompetenciaApi model)
         {
-           _context.Insert(model.ToModel());
-        }
+            var salario = await _salario.FindAllAsync();
+            var ganhos =  await _ganhoExtra.FindAllAsync();
+            var gastos =  await _gastos.FindAllAsync();
 
-        private void FecharCompetencia(CompetenciaApi model)
-        {
-            var competencia = _context.Find(model.Id);
-            competencia.DataFinal = Convert.ToDateTime(model.DataFinal);
-            
-            _context.Update(competencia);
-        }
+            model.ValorGasto = model.ValorGasto = gastos.Where(x => x.CompetenciaId == model.Id).ToList().Sum(x => x.Valor);
+
+            model.ValorGanho = salario.Where(x => x.CompetenciaId == model.Id).Select(x => x.ValorLiquido).Sum() 
+                + ganhos.Where(x => x.CompetenciaId == model.Id).Sum(x => x.Valor);
+         
+            model.ValorSobra = model.ValorGanho - model.ValorGasto;
+        }      
         #endregion
+
     }
 }

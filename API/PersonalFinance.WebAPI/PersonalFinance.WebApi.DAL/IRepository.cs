@@ -14,11 +14,11 @@ namespace PersonalFinance.WebApi.DAL
         void Delete(params TEntity[] obj);
         #endregion
 
-        #region Methods async
+        #region Methods async  
         Task<IList<TEntity>> FindAllAsync();
         Task<TEntity> FindAsync(int key);
         Task InsertAsync(params TEntity[] obj);
-        Task UpdateChangesAsync(params TEntity[] obj);
+        Task UpdateChangesAsync(TEntity obj);
         Task RemoveAsync(params TEntity[] obj);
         #endregion
     }

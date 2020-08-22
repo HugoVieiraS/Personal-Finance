@@ -13,11 +13,11 @@ namespace PersonalFinance.WebApi.Model
         public double ValorGanho { get; set; }
         public double ValorSobra { get; set; }
 
-        public IList<Salario> Salario { get; set; }
-        public IList<Investimentos> Investimentos { get; set; }
-        public IList<Gastos> Gastos { get; set; }
-        public IList<GanhoExtra> GanhoExtra { get; set; }
-        public IList<ContaBancaria> ContaBancaria { get; set; }
+        public virtual IList<Salario> Salario { get; set; }
+        public virtual IList<Investimentos> Investimentos { get; set; }
+        public virtual IList<Gastos> Gastos { get; set; }
+        public virtual IList<GanhoExtra> GanhoExtra { get; set; }
+        public virtual IList<ContaBancaria> ContaBancaria { get; set; }
         #endregion
     }
 

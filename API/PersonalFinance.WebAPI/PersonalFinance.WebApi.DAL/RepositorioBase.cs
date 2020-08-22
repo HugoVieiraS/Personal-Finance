@@ -48,10 +48,7 @@ namespace PersonalFinance.WebApi.DAL
         #endregion
 
         #region Methods Async
-        public async Task<IList<TEntity>> FindAllAsync()
-        {
-            return await _context.Set<TEntity>().ToListAsync();
-        }
+        public async Task<IList<TEntity>> FindAllAsync() => await _context.Set<TEntity>().ToListAsync();
 
         public async Task<TEntity> FindAsync(int key)
         {
@@ -64,9 +61,10 @@ namespace PersonalFinance.WebApi.DAL
             await _context.SaveChangesAsync();
         }
 
-        public async Task UpdateChangesAsync(params TEntity[] obj)
+        public async Task UpdateChangesAsync(TEntity obj)
         {
-            _context.Set<TEntity>().AddRange(obj);
+            _context.Entry(obj).State = EntityState.Modified;
+            _context.Set<TEntity>().UpdateRange(obj);
             await _context.SaveChangesAsync();
         }
 
