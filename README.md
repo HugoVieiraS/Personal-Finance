@@ -7,7 +7,7 @@
 
 <p>Necessário cadastrar seu salario e suas despesas mensais, como também contas bancárias, e ganhos em investimentos, dessa forma, é possível ter um maior controle sobre o seu patrimonio.
 
-<p>A estrutura inicial é uma API, que fornece toda a persistência no banco de dados e a regra de negócio, para ser consumida por uma aplicação WEB ou mobilie.
+<p>A estrutura inicial é uma API Rest, que fornece toda a persistência no banco de dados e a regra de negócio para ser consumido por uma aplicação WEB ou mobilie.
 
 <p>Sistema ainda em construção....
 </h4>
