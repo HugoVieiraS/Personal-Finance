@@ -9,5 +9,7 @@
 
 <p>A estrutura inicial é uma API Rest, que fornece toda a persistência no banco de dados e a regra de negócio para ser consumido por uma aplicação WEB ou mobilie.
 
+<p> Desenvolvimento em Asp.Net Core 3.0.
+  
 <p>Sistema ainda em construção....
 </h4>
