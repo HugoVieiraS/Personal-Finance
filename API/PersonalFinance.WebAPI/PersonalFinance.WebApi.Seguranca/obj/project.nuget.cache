@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "jZp92KkZxv+pUt8HG0Sqg/8mjWD1t3O48E9DIn+1aQPz7mY52g5ej+io/Q1/ndMZoOGeKY4qjPw9Y4YwXm6ioA==",
+  "success": true,
+  "projectFilePath": "C:\\Hugo Vieira\\Projetos\\Personal Finance\\API\\PersonalFinance.WebAPI\\PersonalFinance.WebApi.Seguranca\\PersonalFinance.WebApi.Seguranca.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hugov\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\hugov\\.nuget\\packages\\microsoft.identitymodel.logging\\6.7.1\\microsoft.identitymodel.logging.6.7.1.nupkg.sha512",
+    "C:\\Users\\hugov\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.7.1\\microsoft.identitymodel.tokens.6.7.1.nupkg.sha512",
+    "C:\\Users\\hugov\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

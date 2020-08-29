@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using PersonalFinance.WebApi.DAL;
 using PersonalFinance.WebApi.Model;
 using PersonalFinance.WebApi.Extensions;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PersonalFinance.WebAPI.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CompetenciasController : ControllerBase
@@ -36,7 +35,7 @@ namespace PersonalFinance.WebAPI.Controllers
         #region Methods
         //GET: api/Competencias
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CompetenciaApi>>> GetCompetencia()
+        public async Task<ActionResult<IEnumerable<CompetenciaApi>>> ObterCompetencias()
         {
             var list = await _context.FindAllAsync();
             return Ok(list);

@@ -13,6 +13,11 @@ using Microsoft.Extensions.Logging;
 using PersonalFinance.WebApi.Model;
 using Microsoft.EntityFrameworkCore;
 using PersonalFinance.WebApi.DAL;
+using Microsoft.CodeAnalysis.Options;
+using Microsoft.IdentityModel.Tokens;
+using PersonalFinance.WebApi.Seguranca;
+using PersonalFinance.WebApi.DAL.Usuarios;
+using Microsoft.AspNetCore.Identity;
 
 namespace PersonalFinance.WebAPI
 {
@@ -30,14 +35,36 @@ namespace PersonalFinance.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            #region Configuração Banco de dados
             services.AddDbContext<ApplicationContext>(options =>
-            {
-                options.UseSqlServer(Configuration.GetConnectionString("Default"));
-            });
+                {
+                    options.UseSqlServer(Configuration.GetConnectionString("Default"));
+                });
+        
             services.AddTransient<IDataService, DataService>();
+            #endregion
+
+            //Authentication
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = "JwtBearer";
+                options.DefaultChallengeScheme = "JwtBearer";
+            }).AddJwtBearer("JwtBearer", options => {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("personal-finance-vitorteste-api-treinamento")),
+                    ClockSkew = TimeSpan.FromMinutes(5),
+                    ValidIssuer = "PersonalFinance.WebAPI",
+                    ValidAudience = "Postman",
+                };
+            });
+
 
             #region Adicionar classes para injeção de dependencia
-            services.AddTransient<IRepository<Usuarios>, RepositorioBase<Usuarios>>();
             services.AddTransient<IRepository<Salario>, RepositorioBase<Salario>>();
             services.AddTransient<IRepository<Investimentos>, RepositorioBase<Investimentos>>();
             services.AddTransient<IRepository<Gastos>, RepositorioBase<Gastos>>();
@@ -45,8 +72,7 @@ namespace PersonalFinance.WebAPI
             services.AddTransient<IRepository<ContaBancaria>, RepositorioBase<ContaBancaria>>();
             services.AddTransient<IRepository<Competencia>, RepositorioBase<Competencia>>();
             #endregion
-
-            services.AddControllers();
+            services.AddControllers();           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,6 +88,7 @@ namespace PersonalFinance.WebAPI
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
