@@ -5,7 +5,9 @@ namespace Common
 {
     public interface IApiCaller
     {
-        Task<T> CallWebApiByPost<T>(object requestObject, string controller, string method);
-        Task<T> CallWebApiByGet<T>(string controller);
+        Task<T> CallWebApiByGet<T>(string authToken, string controller);
+        Task<T> CallWebApiByPost<T>(string authToken, object requestObject, string controller);
+        Task<T> CallWebApiByDelete<T>(string authToken, string controller);
+        Task<T> CallWebApiByPut<T>(string authToken, object requestObject, string controller);
     }
 }

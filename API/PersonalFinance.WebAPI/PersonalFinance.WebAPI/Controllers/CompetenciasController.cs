@@ -48,7 +48,7 @@ namespace PersonalFinance.WebAPI.Controllers
             var competencia = await _context.FindAsync(id);
             if (competencia != null)
             {
-                return Ok(competencia.ToApi());
+                return Ok(competencia);
             }
 
             return NotFound();

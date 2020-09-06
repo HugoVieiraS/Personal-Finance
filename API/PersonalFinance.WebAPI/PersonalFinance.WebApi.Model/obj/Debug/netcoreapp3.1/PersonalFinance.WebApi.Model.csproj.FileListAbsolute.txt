@@ -21,3 +21,4 @@ C:\Hugo Vieira\Projetos\Personal Finance\API\PersonalFinance.WebAPI\PersonalFina
 C:\Hugo Vieira\Projetos\Personal Finance\API\PersonalFinance.WebAPI\PersonalFinance.WebApi.Model\obj\Debug\netcoreapp3.1\PersonalFinance.WebApi.Model.dll
 C:\Hugo Vieira\Projetos\Personal Finance\API\PersonalFinance.WebAPI\PersonalFinance.WebApi.Model\obj\Debug\netcoreapp3.1\PersonalFinance.WebApi.Model.pdb
 C:\Hugo Vieira\Projetos\Personal Finance\API\PersonalFinance.WebAPI\PersonalFinance.WebApi.Model\obj\Debug\netcoreapp3.1\PersonalFinance.WebApi.Model.genruntimeconfig.cache
+C:\Hugo Vieira\Projetos\Personal Finance\API\PersonalFinance.WebAPI\PersonalFinance.WebApi.Model\obj\Debug\netcoreapp3.1\PersonalFinance.WebApi.Model.csprojAssemblyReference.cache

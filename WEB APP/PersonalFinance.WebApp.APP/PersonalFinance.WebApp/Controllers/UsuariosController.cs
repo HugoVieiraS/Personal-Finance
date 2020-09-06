@@ -1,95 +1,110 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using PersonalFinance.WebApp.Acess;
+using PersonalFinance.WebApp.Models;
 using PersonalFinance.WebApp.Repositories.Interfaces;
 
 namespace PersonalFinance.WebApp.Controllers
 {
     public class UsuariosController : Controller
     {
-        private readonly IUsuariosRepository _usuariosRepository;
-        public UsuariosController(IUsuariosRepository usuariosRepository)
+        private readonly AuthApiClient _api;
+
+        public UsuariosController(AuthApiClient authApi)
         {
-            _usuariosRepository = usuariosRepository;
-        }
-        // GET: UsuariosController
-        public ActionResult Index()
-        {
-            var usuarios = _usuariosRepository.List();
-            return View(usuarios);
+            _api = authApi;
         }
 
-        // GET: UsuariosController/Details/5
-        public ActionResult Details(int id)
-        {
-            var usuario = _usuariosRepository.Get(id);
-            return View(usuario);
-        }
-
-        // GET: UsuariosController/Create
-        public ActionResult Create()
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> Login()
         {
             return View();
         }
 
-        // POST: UsuariosController/Create
         [HttpPost]
+        [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<IActionResult> Login(LoginModel model)
         {
-            try
+            if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                var result = await _api.PostLoginAsync(model);
+                if (result.Succeeded)
+                {
+                    //onde guardar o token? 
+                    //através de um cookie de autenticação - link do MS Docs
+
+                    //primeiro vamos criar os direitos/reinvindicações/claims
+                    var claims = new List<Claim>
+                    {
+                        new Claim(ClaimTypes.Name, model.Login),
+                        new Claim("Token", result.Token) //em uma claim eu guardo o token!
+                    };
+
+                    //e guardar esses direitos na identidade principal
+                    var claimsIdentity = new ClaimsIdentity(
+                        claims,
+                        CookieAuthenticationDefaults.AuthenticationScheme
+                    );
+
+                    var authProp = new AuthenticationProperties
+                    {
+                        IssuedUtc = DateTime.UtcNow,
+                        //configurar expiração do cookie para um valor menor que a expiração do token
+                        ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(25),
+                        IsPersistent = true
+                    };
+
+                    //e finalmente autenticar via cookie com essa identidade
+                    await HttpContext.SignInAsync(
+                        CookieAuthenticationDefaults.AuthenticationScheme,
+                        new ClaimsPrincipal(claimsIdentity),
+                        authProp);
+
+
+                    return RedirectToAction("Index", "Home");
+                }
+                ModelState.AddModelError(String.Empty, "Erro na autenticação");
+                return View(model);
             }
-            catch
-            {
-                return View();
-            }
+            return View(model);
         }
 
-        // GET: UsuariosController/Edit/5
-        public ActionResult Edit(int id)
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult Register()
         {
             return View();
         }
 
-        // POST: UsuariosController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        [AllowAnonymous]
+        public async Task<IActionResult> Register(RegisterViewModel model)
         {
-            try
+            if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                await _api.PostRegisterAsync(model);
+                return RedirectToAction("Index", "Home");
             }
-            catch
-            {
-                return View();
-            }
+            return View(model);
         }
 
-        // GET: UsuariosController/Delete/5
-        public ActionResult Delete(int id)
+        [HttpGet]
+        public async Task<IActionResult> Logout()
         {
-            return View();
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Login");
         }
 
-        // POST: UsuariosController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }

@@ -1,0 +1,55 @@
+﻿@model IEnumerable<PersonalFinance.WebApp.Model.Competencia>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <div class="kt-portlet__head-toolbar">
+        <div class="kt-portlet__head-wrapper">
+            @Html.ActionLink("Adicionar", "Create", "Competencia", null, new { @class = "btn btn-brand btn-elevate" })
+        </div>
+    </div>
+</p>
+@if (Model != null && Model.Count() > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DataInicial)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DataFinal)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataInicial)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataFinal)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else 
+{
+    <h3>Sem informações</h3>
+}
+

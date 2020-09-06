@@ -1,0 +1,50 @@
+﻿@model PersonalFinance.WebApp.Model.Competencia
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Competencia</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DataInicial" class="control-label"></label>
+                <input asp-for="DataInicial" class="form-control" />
+                <span asp-validation-for="DataInicial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataFinal" class="control-label"></label>
+                <input asp-for="DataFinal" class="form-control" />
+                <span asp-validation-for="DataFinal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValorGasto" class="control-label"></label>
+                <input asp-for="ValorGasto" class="form-control" />
+                <span asp-validation-for="ValorGasto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValorGanho" class="control-label"></label>
+                <input asp-for="ValorGanho" class="form-control" />
+                <span asp-validation-for="ValorGanho" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValorSobra" class="control-label"></label>
+                <input asp-for="ValorSobra" class="form-control" />
+                <span asp-validation-for="ValorSobra" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

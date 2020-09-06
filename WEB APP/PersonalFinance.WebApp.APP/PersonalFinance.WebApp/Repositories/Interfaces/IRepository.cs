@@ -13,5 +13,6 @@ namespace PersonalFinance.WebApp.Repositories.Interfaces
         T Get(int id);
         void Insert(T model);
         IEnumerable<T> List();
+        T Delete(int id);
     }
 }
