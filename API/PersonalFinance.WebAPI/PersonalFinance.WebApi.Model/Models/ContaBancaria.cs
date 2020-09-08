@@ -10,9 +10,7 @@ namespace PersonalFinance.WebApi.Model
         #region Properties
         public string NomeBanco { get; set; }
         public double ValorConta { get; set; }
-        public double Rendimento { get; set; }
-        public virtual Competencia Competencia { get; set; }
-        public int CompetenciaId { get; set; }     
+        public double Rendimento { get; set; }   
         #endregion
     }
     public class ContaBancariaApi
@@ -22,7 +20,6 @@ namespace PersonalFinance.WebApi.Model
         public string NomeBanco { get; set; }
         public double ValorConta { get; set; }
         public double Rendimento { get; set; }
-        public int CompetenciaId { get; set; }
         #endregion
     }
 }

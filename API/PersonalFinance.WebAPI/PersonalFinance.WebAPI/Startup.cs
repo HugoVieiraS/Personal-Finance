@@ -57,7 +57,7 @@ namespace PersonalFinance.WebAPI
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("personal-finance-vitorteste-api-treinamento")),
-                    ClockSkew = TimeSpan.FromMinutes(5),
+                    ClockSkew = TimeSpan.FromDays(30),
                     ValidIssuer = "PersonalFinance.WebAPI",
                     ValidAudience = "Postman",
                 };

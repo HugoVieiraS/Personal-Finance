@@ -16,7 +16,6 @@ namespace PersonalFinance.WebApi.Model.Extensions
                 ValorInvestido = model.ValorInvestido,
                 Rendimento = model.Rendimento,
                 DataInvestimento = Convert.ToDateTime(model.DataInvestimento),
-                CompetenciaId = model.CompetenciaId,
             };
         }
 
@@ -29,7 +28,6 @@ namespace PersonalFinance.WebApi.Model.Extensions
                 ValorInvestido = model.ValorInvestido,
                 Rendimento = model.Rendimento,
                 DataInvestimento = Convert.ToString(model.DataInvestimento),
-                CompetenciaId = model.CompetenciaId,
             };
         }
         #endregion

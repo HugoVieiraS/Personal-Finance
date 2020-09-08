@@ -49,6 +49,10 @@ namespace PersonalFinance.WebApp
         {
             //adicionar modelos referentes a API
             services.AddTransient<ICompetenciaRepository, CompetenciaRepository>();
+            services.AddTransient<IContaBancariaRepository, ContaBancariaRepository>();
+            services.AddTransient<IGanhoExtraRepository, GanhoExtraRepository>();
+            services.AddTransient<IInvestimentosRepository, InvestimentosRepository>();
+            services.AddTransient<ISalarioRepository, SalarioRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

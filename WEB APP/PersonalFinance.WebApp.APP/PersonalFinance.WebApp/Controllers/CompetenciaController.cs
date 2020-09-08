@@ -24,28 +24,24 @@ namespace PersonalFinance.WebApp.Controllers
         #endregion
 
         #region Methods
-        // GET: HomeController
         public ActionResult Index()
         {
             var competencias = _competenciaRepository.List();
             return View(competencias);
         }
 
-        // GET: HomeController/Details/5
         public ActionResult Details(int id)
         {
             var competencia = _competenciaRepository.Get(id);
             return View(competencia);
         }
 
-        // GET: HomeController/Create
         public ActionResult Create()
         {
             var competencia = new Competencia();
             return View(competencia);
         }
 
-        // POST: HomeController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([FromForm] Competencia model)
@@ -67,14 +63,12 @@ namespace PersonalFinance.WebApp.Controllers
             return View(model);
         }
 
-        // GET: HomeController/Edit/5
         public ActionResult Edit(int id)
         {
             var competencia = _competenciaRepository.Get(id);
             return View(competencia);
         }
 
-        // POST: HomeController/Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Competencia model)

@@ -16,7 +16,6 @@ namespace PersonalFinance.WebApi.Model.Extensions
                 NomeBanco = model.NomeBanco,
                 ValorConta = model.ValorConta,
                 Rendimento = model.Rendimento,
-                CompetenciaId = model.CompetenciaId,
             };
         }
 
@@ -28,7 +27,6 @@ namespace PersonalFinance.WebApi.Model.Extensions
                 NomeBanco = model.NomeBanco,
                 ValorConta = model.ValorConta,
                 Rendimento = model.Rendimento,
-                CompetenciaId = model.CompetenciaId,
             };
         }     
         #endregion

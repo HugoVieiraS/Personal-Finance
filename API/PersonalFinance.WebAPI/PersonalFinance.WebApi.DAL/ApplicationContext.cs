@@ -48,10 +48,8 @@ namespace PersonalFinance.WebApi.DAL
 
             #region Relacionamento entre as tabelas;
             modelBuilder.Entity<Salario>().HasOne(t => t.Competencia);
-            modelBuilder.Entity<Investimentos>().HasOne(t => t.Competencia);
             modelBuilder.Entity<Gastos>().HasOne(t => t.Competencia);
             modelBuilder.Entity<GanhoExtra>().HasOne(t => t.Competencia);
-            modelBuilder.Entity<ContaBancaria>().HasOne(t => t.Competencia);
             #endregion
         }
         #endregion

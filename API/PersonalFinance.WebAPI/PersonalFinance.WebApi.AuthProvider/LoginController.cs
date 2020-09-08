@@ -46,7 +46,7 @@ namespace PersonalFinance.WebAPI.Controllers
                        audience: "Postman",
                        claims: direitos,
                        signingCredentials: credenciais,
-                       expires: DateTime.Now.AddMinutes(30)
+                       expires: DateTime.Now.AddDays(30)
                      );
 
                     var tokenString = new JwtSecurityTokenHandler().WriteToken(token);

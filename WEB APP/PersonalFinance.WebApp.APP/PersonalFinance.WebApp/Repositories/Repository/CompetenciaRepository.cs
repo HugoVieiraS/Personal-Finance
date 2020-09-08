@@ -10,13 +10,19 @@ namespace PersonalFinance.WebApp.Repositories.Repository
 {
     public class CompetenciaRepository : RepositoryBase, ICompetenciaRepository
     {
+        #region Properties
         public string ControllerName => "competencias";
+        #endregion
+
+        #region Constructor
         public CompetenciaRepository(IApiCaller apiCaller) 
             : base(apiCaller){ }
+        #endregion
 
+        #region Mehtods
         public void Edit(Competencia model)
         {
-            throw new NotImplementedException();
+            _ = ApiCaller.CallWebApiByPut<Competencia>(Token, model, $"{ControllerName}").Result;
         }
 
         public Competencia Get(int id)
@@ -38,5 +44,6 @@ namespace PersonalFinance.WebApp.Repositories.Repository
         {
             return ApiCaller.CallWebApiByDelete<Competencia>(Token, $"{ControllerName}/{id}").Result;
         }
+        #endregion
     }
 }

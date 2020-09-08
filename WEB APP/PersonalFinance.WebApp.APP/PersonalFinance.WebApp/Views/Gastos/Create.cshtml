@@ -1,0 +1,49 @@
+﻿@model PersonalFinance.WebApp.Model.Gastos
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Adicionar gasto</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NomeConta" class="control-label"></label>
+                <input asp-for="NomeConta" class="form-control" />
+                <span asp-validation-for="NomeConta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Valor" class="control-label"></label>
+                <input asp-for="Valor" class="form-control" />
+                <span asp-validation-for="Valor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataPagamento" class="control-label"></label>
+                <input asp-for="DataPagamento" class="form-control" />
+                <span asp-validation-for="DataPagamento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataGasto" class="control-label"></label>
+                <input asp-for="DataGasto" class="form-control" />
+                <span asp-validation-for="DataGasto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompetenciaId" class="control-label"></label>
+                <input asp-for="CompetenciaId" class="form-control" />
+                <span asp-validation-for="CompetenciaId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+

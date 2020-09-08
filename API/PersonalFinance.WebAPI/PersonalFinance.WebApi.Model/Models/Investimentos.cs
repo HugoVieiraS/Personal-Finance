@@ -9,9 +9,6 @@ namespace PersonalFinance.WebApi.Model
         public double ValorInvestido { get; set; }
         public double Rendimento { get; set; }
         public DateTime DataInvestimento { get; set; }
-
-        public virtual Competencia Competencia { get; set; }
-        public int CompetenciaId { get; set; }
         #endregion
     }
 
@@ -23,7 +20,6 @@ namespace PersonalFinance.WebApi.Model
         public double ValorInvestido { get; set; }
         public double Rendimento { get; set; }
         public string DataInvestimento { get; set; }
-        public int CompetenciaId { get; set; }
         #endregion
     }
 }

@@ -6,5 +6,7 @@ using System.Threading.Tasks;
 
 namespace PersonalFinance.WebApp.Repositories.Interfaces
 {
-    public interface ICompetenciaRepository : IRepository<Competencia> { }
+    public interface ICompetenciaRepository : IRepository<Competencia> 
+    { 
+    }
 }
