@@ -16,4 +16,8 @@
     <ProjectReference Include="..\PersonalFinance.WebApp.Model\PersonalFinance.WebApp.Model.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\theme\" />
+  </ItemGroup>
+
 </Project>
