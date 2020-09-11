@@ -134,7 +134,6 @@ C:\Hugo Vieira\Projetos\Personal Finance\WEB APP\PersonalFinance.WebApp.APP\Pers
 C:\Hugo Vieira\Projetos\Personal Finance\WEB APP\PersonalFinance.WebApp.APP\PersonalFinance.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Competencia\Index.cshtml.g.cs
 C:\Hugo Vieira\Projetos\Personal Finance\WEB APP\PersonalFinance.WebApp.APP\PersonalFinance.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\ContaBancaria\Details.cshtml.g.cs
 C:\Hugo Vieira\Projetos\Personal Finance\WEB APP\PersonalFinance.WebApp.APP\PersonalFinance.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Hugo Vieira\Projetos\Personal Finance\WEB APP\PersonalFinance.WebApp.APP\PersonalFinance.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Hugo Vieira\Projetos\Personal Finance\WEB APP\PersonalFinance.WebApp.APP\PersonalFinance.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Hugo Vieira\Projetos\Personal Finance\WEB APP\PersonalFinance.WebApp.APP\PersonalFinance.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Usuarios\Login.cshtml.g.cs
 C:\Hugo Vieira\Projetos\Personal Finance\WEB APP\PersonalFinance.WebApp.APP\PersonalFinance.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Usuarios\Register.cshtml.g.cs
@@ -168,3 +167,4 @@ C:\Hugo Vieira\Projetos\Personal Finance\WEB APP\PersonalFinance.WebApp.APP\Pers
 C:\Hugo Vieira\Projetos\Personal Finance\WEB APP\PersonalFinance.WebApp.APP\PersonalFinance.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Salario\Details.cshtml.g.cs
 C:\Hugo Vieira\Projetos\Personal Finance\WEB APP\PersonalFinance.WebApp.APP\PersonalFinance.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Salario\Create.cshtml.g.cs
 C:\Hugo Vieira\Projetos\Personal Finance\WEB APP\PersonalFinance.WebApp.APP\PersonalFinance.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Salario\Edit.cshtml.g.cs
+C:\Hugo Vieira\Projetos\Personal Finance\WEB APP\PersonalFinance.WebApp.APP\PersonalFinance.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Teste.cshtml.g.cs

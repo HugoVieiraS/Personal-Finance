@@ -51,6 +51,7 @@ namespace PersonalFinance.WebApp
             services.AddTransient<ICompetenciaRepository, CompetenciaRepository>();
             services.AddTransient<IContaBancariaRepository, ContaBancariaRepository>();
             services.AddTransient<IGanhoExtraRepository, GanhoExtraRepository>();
+            services.AddTransient<IGastosRepository, GastosRepository>();
             services.AddTransient<IInvestimentosRepository, InvestimentosRepository>();
             services.AddTransient<ISalarioRepository, SalarioRepository>();
         }

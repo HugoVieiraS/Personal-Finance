@@ -6,3 +6,4 @@ C:\Hugo Vieira\Projetos\Personal Finance\WEB APP\PersonalFinance.WebApp.APP\Pers
 C:\Hugo Vieira\Projetos\Personal Finance\WEB APP\PersonalFinance.WebApp.APP\PersonalFinance.WebApp.Model\obj\Debug\netcoreapp3.1\PersonalFinance.WebApp.Model.csproj.CoreCompileInputs.cache
 C:\Hugo Vieira\Projetos\Personal Finance\WEB APP\PersonalFinance.WebApp.APP\PersonalFinance.WebApp.Model\obj\Debug\netcoreapp3.1\PersonalFinance.WebApp.Model.dll
 C:\Hugo Vieira\Projetos\Personal Finance\WEB APP\PersonalFinance.WebApp.APP\PersonalFinance.WebApp.Model\obj\Debug\netcoreapp3.1\PersonalFinance.WebApp.Model.pdb
+C:\Hugo Vieira\Projetos\Personal Finance\WEB APP\PersonalFinance.WebApp.APP\PersonalFinance.WebApp.Model\obj\Debug\netcoreapp3.1\PersonalFinance.WebApp.Model.csprojAssemblyReference.cache

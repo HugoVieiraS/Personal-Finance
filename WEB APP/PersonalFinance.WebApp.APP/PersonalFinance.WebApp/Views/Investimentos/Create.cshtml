@@ -4,46 +4,69 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Adicionar investimento</h1>
-
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Id" class="control-label"></label>
-                <input asp-for="Id" class="form-control" />
-                <span asp-validation-for="Id" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="NomeInvestimento" class="control-label"></label>
-                <input asp-for="NomeInvestimento" class="form-control" />
-                <span asp-validation-for="NomeInvestimento" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ValorInvestido" class="control-label"></label>
-                <input asp-for="ValorInvestido" class="form-control" />
-                <span asp-validation-for="ValorInvestido" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Rendimento" class="control-label"></label>
-                <input asp-for="Rendimento" class="form-control" />
-                <span asp-validation-for="Rendimento" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DataInvestimento" class="control-label"></label>
-                <input asp-for="DataInvestimento" class="form-control" />
-                <span asp-validation-for="DataInvestimento" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">Investimentos</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="~/home/index">Home</a></li>
+                        <li class="breadcrumb-item active">Adicionar investimentos</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
     </div>
-</div>
+    <!-- Content Header (Page header) -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="align-middle">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Adicionar investimentos</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form asp-action="Create" method="post" role="form">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label asp-for="NomeInvestimento"></label>
+                                <input asp-for="NomeInvestimento" class="form-control" placeholder="Data inicial">
+                                <span asp-validation-for="NomeInvestimento" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ValorInvestido"></label>
+                                <input asp-for="ValorInvestido" class="form-control" placeholder="Data final">
+                                <span asp-validation-for="ValorInvestido" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Rendimento"></label>
+                                <input asp-for="Rendimento" class="form-control" placeholder="Data final">
+                                <span asp-validation-for="Rendimento" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="DataInvestimento"></label>
+                                <input asp-for="DataInvestimento" class="form-control" placeholder="Data final">
+                                <span asp-validation-for="DataInvestimento" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
 
-<div>
-    <a asp-action="Index">Voltar</a>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Confirmar</button>
+                            <button asp-action="Index" class="btn btn-danger">Voltar</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
 </div>
-

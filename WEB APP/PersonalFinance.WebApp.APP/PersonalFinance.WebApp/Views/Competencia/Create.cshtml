@@ -4,28 +4,59 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Abrir competencia</h1>
-<hr />
-    <div class="col-md-4">
-        <form asp-action="Create" method="post" role="form">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="card-body">
-                <div class="form-group">
-                    <label asp-for="DataInicial"></label>
-                    <input asp-for="DataInicial" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                </div>
-                <div class="form-group">
-                    <label asp-for="DataFinal"></label>
-                    <input asp-for="DataFinal" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                </div>
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Confirmar</button>
-                </div>
-            </div>
-        </form>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">Competência</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="~/home/index">Home</a></li>
+                        <li class="breadcrumb-item active">Abrir competência</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
     </div>
+    <!-- Content Header (Page header) -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="align-middle">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Adicionar competência</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form asp-action="Create" method="post" role="form">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label asp-for="DataInicial"></label>
+                                <input asp-for="DataInicial" class="form-control" placeholder="Data inicial">
+                                <span asp-validation-for="DataInicial" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="DataFinal"></label>
+                                <input asp-for="DataFinal" class="form-control" placeholder="Data final">
+                                <span asp-validation-for="DataFinal" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
 
-<div>
-    <a asp-action="Index">Voltar</a>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Confirmar</button>
+                            <button asp-action="Index" class="btn btn-danger">Voltar</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
 </div>
-

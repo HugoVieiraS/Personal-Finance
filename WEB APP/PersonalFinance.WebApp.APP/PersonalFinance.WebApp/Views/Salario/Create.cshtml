@@ -4,66 +4,94 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Adicionar salário</h1>
-<h4>Salario</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="OrigemGanho" class="control-label"></label>
-                <input asp-for="OrigemGanho" class="form-control" />
-                <span asp-validation-for="OrigemGanho" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DataRecebimento" class="control-label"></label>
-                <input asp-for="DataRecebimento" class="form-control" />
-                <span asp-validation-for="DataRecebimento" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ValorBruto" class="control-label"></label>
-                <input asp-for="ValorBruto" class="form-control" />
-                <span asp-validation-for="ValorBruto" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Desconto1" class="control-label"></label>
-                <input asp-for="Desconto1" class="form-control" />
-                <span asp-validation-for="Desconto1" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Desconto2" class="control-label"></label>
-                <input asp-for="Desconto2" class="form-control" />
-                <span asp-validation-for="Desconto2" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Imposto" class="control-label"></label>
-                <input asp-for="Imposto" class="form-control" />
-                <span asp-validation-for="Imposto" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ValorLiquido" class="control-label"></label>
-                <input asp-for="ValorLiquido" class="form-control" />
-                <span asp-validation-for="ValorLiquido" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ValorAdicional" class="control-label"></label>
-                <input asp-for="ValorAdicional" class="form-control" />
-                <span asp-validation-for="ValorAdicional" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CompetenciaId" class="control-label"></label>
-                <input asp-for="CompetenciaId" class="form-control" />
-                <span asp-validation-for="CompetenciaId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">Salário</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="~/home/index">Home</a></li>
+                        <li class="breadcrumb-item active">Adicionar salário</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
     </div>
-</div>
+    <!-- Content Header (Page header) -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="align-middle">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Adicionar salário</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form asp-action="Create" method="post" role="form">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label asp-for="OrigemGanho"></label>
+                                <input asp-for="OrigemGanho" class="form-control" placeholder="Origem Ganho">
+                                <span asp-validation-for="OrigemGanho" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="DataRecebimento"></label>
+                                <input asp-for="DataRecebimento" class="form-control" placeholder="Data recebimento">
+                                <span asp-validation-for="DataRecebimento" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ValorBruto"></label>
+                                <input asp-for="ValorBruto" class="form-control" placeholder="Valor bruto">
+                                <span asp-validation-for="ValorBruto" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Desconto1"></label>
+                                <input asp-for="Desconto1" class="form-control" placeholder="Desconto">
+                                <span asp-validation-for="Desconto1" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Desconto2"></label>
+                                <input asp-for="Desconto2" class="form-control" placeholder="Desconto">
+                                <span asp-validation-for="Desconto2" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Imposto"></label>
+                                <input asp-for="Imposto" class="form-control" placeholder="Imposto">
+                                <span asp-validation-for="Imposto" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ValorLiquido"></label>
+                                <input asp-for="ValorLiquido" class="form-control" placeholder="Valor liquido">
+                                <span asp-validation-for="ValorLiquido" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ValorAdicional"></label>
+                                <input asp-for="ValorAdicional" class="form-control" placeholder="Valor adicional">
+                                <span asp-validation-for="ValorAdicional" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="CompetenciaId"></label>
+                                <input asp-for="CompetenciaId" class="form-control" placeholder="Competência">
+                                <span asp-validation-for="CompetenciaId" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
 
-<div>
-    <a asp-action="Index">Voltar</a>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Confirmar</button>
+                            <button asp-action="Index" class="btn btn-danger">Voltar</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
 </div>
-
