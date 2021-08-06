@@ -11,5 +11,5 @@
 
 <p> Desenvolvimento em Asp.Net Core 3.0.
   
-<p>Sistema ainda em construção....
+<p>Sistema em desenvolvimento...
 </h4>
